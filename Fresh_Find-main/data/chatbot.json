@@ -1,0 +1,97 @@
+{
+  "greeting": "Hi! I'm FreshBot 🌿 — your local market guide. Ask me anything about Karachi's farmers markets!",
+  "fallback": "I'm not sure about that one. Try asking about market hours, locations, produce, or how to use FreshFind.",
+  "quickReplies": [
+    "Which markets are open today?",
+    "Where can I find organic produce?",
+    "What's in season right now?",
+    "How do I bookmark a market?",
+    "Which market is nearest to DHA?"
+  ],
+  "faqs": [
+    {
+      "id": "faq-01",
+      "keywords": ["open", "today", "now", "currently", "right now", "timing", "hours", "time"],
+      "question": "Which markets are open today?",
+      "answer": "It depends on the day! Most markets like Empress Market and Khayaban-e-Bukhari are open daily. Weekend-only markets like DHA Phase 6 Farmers Market open Saturday–Sunday 8 AM–2 PM. Check the Market Directory for live open/closed status on each card.",
+      "link": { "label": "Browse the Market Directory", "href": "market.html#directory" }
+    },
+    {
+      "id": "faq-02",
+      "keywords": ["organic", "farm", "fresh", "natural", "desi", "pesticide"],
+      "question": "Where can I find organic produce?",
+      "answer": "For organic and farm-fresh produce, head to DHA Phase 6 Farmers Market (Sat–Sun), North Nazimabad Farmers Market (Sat–Sun), or Malir Produce Market (daily 5 AM–1 PM). These markets deal directly with local growers.",
+      "link": { "label": "View Market Details", "href": "marketdetails.html?id=dha-phase-6-farmers-market" }
+    },
+    {
+      "id": "faq-03",
+      "keywords": ["season", "seasonal", "fresh now", "what's fresh", "in season", "available"],
+      "question": "What's in season right now?",
+      "answer": "Right now you can find Mangoes, Guavas, Spinach, Tomatoes, Okra, Coriander, Bananas, and Watermelons at peak freshness across Karachi's markets. Check the Produce Guide for full seasonal details.",
+      "link": { "label": "Explore the Produce Guide", "href": "produces.html" }
+    },
+    {
+      "id": "faq-04",
+      "keywords": ["bookmark", "save", "favourite", "favorite", "saved", "how to save"],
+      "question": "How do I bookmark a market?",
+      "answer": "Click the bookmark icon (🔖) on any market card to save it. Your bookmarks are stored in your browser and persist between visits. Access all your saved items from the bookmark icon in the top navigation bar.",
+      "link": { "label": "View your Bookmarks", "href": "bookmarks.html" }
+    },
+    {
+      "id": "faq-05",
+      "keywords": ["dha", "defence", "phase 6", "phase6", "near dha"],
+      "question": "Which market is nearest to DHA?",
+      "answer": "DHA has two great options: DHA Phase 6 Farmers Market (26th Street, Sat–Sun 8 AM–2 PM) for organic and farm produce, and Khayaban-e-Bukhari Market (daily 9 AM–10 PM) for everyday vegetables, fruit, and leafy greens.",
+      "link": { "label": "See DHA Markets", "href": "market.html#directory" }
+    },
+    {
+      "id": "faq-06",
+      "keywords": ["clifton", "near clifton", "sea view", "boat basin", "do darya"],
+      "question": "Which markets are in Clifton?",
+      "answer": "Clifton has two markets: Clifton Beachside Market (daily 4 PM–11 PM) near Sea View, and Do Darya Fresh Market (Wed–Sun 5 PM–11 PM) at Boat Basin. Both are great evening markets for fruit, herbs and dairy.",
+      "link": { "label": "View Clifton Markets", "href": "market.html#directory" }
+    },
+    {
+      "id": "faq-07",
+      "keywords": ["gulshan", "gulshan-e-iqbal", "block 5", "chowrangi"],
+      "question": "What's available in Gulshan-e-Iqbal?",
+      "answer": "Gulshan has two markets: Gulshan Chowrangi Vegetable Market (daily 7 AM–8 PM) for vegetables and roots, and Gulshan-e-Iqbal Block 5 Market (Mon–Sat 8 AM–9 PM) for fruits, dairy and eggs.",
+      "link": { "label": "See Gulshan Markets", "href": "market.html#directory" }
+    },
+    {
+      "id": "faq-08",
+      "keywords": ["saddar", "empress", "empress market", "jodia", "jodia bazaar", "downtown"],
+      "question": "Which markets are in Saddar?",
+      "answer": "Saddar has two iconic markets: Empress Market (daily, Fri from 3 PM, 10 AM–9 PM) — Karachi's most famous covered market — and Jodia Bazaar (Mon–Sat 5 AM–2 PM), a wholesale hub that's busiest in the early morning.",
+      "link": { "label": "View Market Details", "href": "marketdetails.html?id=empress-market" }
+    },
+    {
+      "id": "faq-09",
+      "keywords": ["dairy", "milk", "yoghurt", "yogurt", "cheese", "eggs", "ghee"],
+      "question": "Where can I find dairy and eggs?",
+      "answer": "For dairy and eggs, visit DHA Phase 6 Farmers Market (desi ghee, cottage cheese, farm eggs), Do Darya Fresh Market (milk, farm eggs), or Gulshan-e-Iqbal Block 5 Market (yoghurt, farm eggs, organic honey).",
+      "link": { "label": "Browse Produce Guide", "href": "produces.html" }
+    },
+    {
+      "id": "faq-10",
+      "keywords": ["morning", "early", "early morning", "5am", "7am", "before work", "wholesale"],
+      "question": "Which markets open early in the morning?",
+      "answer": "For early birds: Jodia Bazaar opens at 5 AM (Mon–Sat), Malir Produce Market opens at 5 AM daily, and Gulshan Chowrangi Vegetable Market opens at 7 AM daily. These are the best for the freshest stock.",
+      "link": { "label": "View All Markets", "href": "market.html#directory" }
+    },
+    {
+      "id": "faq-11",
+      "keywords": ["fruit", "fruits", "mango", "mangoes", "guava", "banana", "watermelon"],
+      "question": "Where can I find the best fruit?",
+      "answer": "For the best fruit selection: Empress Market has mangoes, bananas and tomatoes. Clifton Beachside Market carries guavas and chikoo. Malir Produce Market has farm-fresh guavas and seasonal fruits. Jodia Bazaar is great for wholesale fruit quantities.",
+      "link": { "label": "Browse Produce Guide", "href": "produces.html" }
+    },
+    {
+      "id": "faq-12",
+      "keywords": ["what is freshfind", "about", "about freshfind", "who made", "platform", "app", "website"],
+      "question": "What is FreshFind?",
+      "answer": "FreshFind is a free browser-based guide to Karachi's local farmers markets. It shows you market locations, operating hours, and what produce is typically available — all in one place, so you always know before you go.",
+      "link": { "label": "Learn more", "href": "market.html" }
+    }
+  ]
+}

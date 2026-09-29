@@ -1,0 +1,931 @@
+﻿/* =========================================================
+   FreshFind — Bookmarks Page
+   bookmarks.css  (v3 — clean hero redesign)
+
+   Page-specific styles ONLY. All :root tokens, resets,
+   .container, .sr-only and focus-visible rules are inherited
+   from market.css. Hero uses the shared .hero classes from
+   market.css — only bookmarks-specific additions are here.
+
+   Sections:
+     1.  Navbar bookmark active state
+     2.  Hero — CTA links
+     3.  Collection bar (stats + actions below hero)
+     4.  Global empty state
+     5.  Content sections (Markets / Produce)
+     6.  Section headers (eyebrow, heading, subtext)
+     7.  Section empty states
+     8.  Remove buttons (market card + produce card)
+     9.  Note widget
+    10.  Toast
+    11.  Card fade-out animation
+    12.  Responsive
+   ========================================================= */
+
+/* ---------------------------------------------------------------
+   0. Hero — background image override
+   --------------------------------------------------------------- */
+
+/* Bookmarks hero: replace market-04.png with bookmark/hero.png */
+.hero--bookmarks {
+  background-image:
+    linear-gradient(to right, rgba(8,20,13,0.72) 0%, rgba(8,20,13,0.40) 60%, rgba(8,20,13,0.25) 100%),
+    url("../images/bookmark/hero.png");
+  background-size: cover;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+/* ---------------------------------------------------------------
+   0b. Bookmark page — compact market cards (match produce card size)
+   --------------------------------------------------------------- */
+
+/* Reduce body padding so card height matches produce cards */
+#bmMarketGrid .market-card__body {
+  padding: 0.85rem 1rem 1rem;
+  gap: 0.5rem;
+}
+
+/* Hide extra info — only name, area, status, note + button remain */
+#bmMarketGrid .market-card__description,
+#bmMarketGrid .market-card__meta,
+#bmMarketGrid .market-card__chips {
+  display: none;
+}
+
+/* Match produce card name font size */
+#bmMarketGrid .market-card__name {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Keep heading row single line — name truncates, area stays visible */
+#bmMarketGrid .market-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+#bmMarketGrid .market-card__area {
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------------
+   1. Navbar bookmark — active state on this page
+   --------------------------------------------------------------- */
+
+a.ff-navbar__bookmark.is-active {
+  color: var(--primary-dark);
+}
+
+a.ff-navbar__bookmark.is-active .ff-navbar__bookmark-icon path {
+  fill: var(--primary-dark);
+  stroke: var(--primary-dark);
+}
+
+/* Hero heading — single line where space allows, wraps naturally on mobile */
+.bm-hero__heading {
+  white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+  .bm-hero__heading {
+    white-space: normal;
+  }
+}
+
+/* ---------------------------------------------------------------
+   2. Hero — CTA links (replaces old .bm-hero__ctas)
+   --------------------------------------------------------------- */
+
+.bm-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+.bm-hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease,
+              box-shadow 0.2s ease, gap 0.2s ease, border-color 0.2s ease;
+}
+
+.bm-hero-link svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+/* Primary — solid white */
+.bm-hero-link--primary {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1.5px solid transparent;
+  color: var(--primary-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+}
+
+.bm-hero-link--primary:hover,
+.bm-hero-link--primary:focus-visible {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  gap: 0.8rem;
+}
+
+.bm-hero-link--primary:hover svg {
+  transform: translateY(3px);
+}
+
+/* Secondary — ghost */
+.bm-hero-link--secondary {
+  padding: 0.72rem 1.35rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.bm-hero-link--secondary:hover,
+.bm-hero-link--secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  gap: 0.8rem;
+}
+
+.bm-hero-link--secondary:hover svg {
+  transform: translateY(2px);
+}
+
+/* ---------------------------------------------------------------
+   3. Collection bar — stats + actions strip below hero
+   --------------------------------------------------------------- */
+
+.bm-collection-bar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+.bm-collection-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+
+/* Stats group */
+.bm-collection-bar__stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.bm-collection-bar__stat {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 1.25rem;
+}
+
+.bm-collection-bar__stat:first-child {
+  padding-left: 0;
+}
+
+.bm-collection-bar__stat svg {
+  width: 14px;
+  height: 14px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.bm-collection-bar__stat-number {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+  transition: color 0.25s ease;
+}
+
+.bm-collection-bar__stat-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.bm-collection-bar__divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* Actions group */
+.bm-collection-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.bm-collection-bar__actions[hidden] {
+  display: none;
+}
+
+.bm-collection-bar__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease,
+              color 0.15s ease, transform 0.12s ease;
+}
+
+.bm-collection-bar__btn svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.bm-collection-bar__btn:hover,
+.bm-collection-bar__btn:focus-visible {
+  background: var(--surface);
+  border-color: var(--primary-light);
+  color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.bm-collection-bar__btn--danger:hover,
+.bm-collection-bar__btn--danger:focus-visible {
+  background: rgba(201, 74, 74, 0.06);
+  border-color: rgba(201, 74, 74, 0.3);
+  color: var(--status-closed);
+}
+
+/* ---------------------------------------------------------------
+   4. Global empty state
+   --------------------------------------------------------------- */
+
+.bm-empty-global {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+}
+
+.bm-empty-global__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.bm-empty-global__orb {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,
+    rgba(47, 107, 79, 0.15) 0%,
+    rgba(111, 159, 114, 0.08) 100%);
+  border: 1px solid rgba(47, 107, 79, 0.18);
+  border-radius: 24px;
+  margin-bottom: 1.75rem;
+  color: var(--primary-dark);
+  animation: bmOrbPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.bm-empty-global__orb svg {
+  width: 40px;
+  height: 40px;
+}
+
+.bm-empty-global__text h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem);
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+}
+
+.bm-empty-global__text p {
+  margin: 0 0 2.25rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.bm-empty-global__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bm-empty-global__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease,
+              border-color 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+}
+
+.bm-empty-global__cta svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.bm-empty-global__cta--primary {
+  background: var(--primary);
+  color: #FFFFFF;
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 16px rgba(47, 107, 79, 0.28);
+}
+
+.bm-empty-global__cta--primary:hover,
+.bm-empty-global__cta--primary:focus-visible {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(47, 107, 79, 0.38);
+}
+
+.bm-empty-global__cta--secondary {
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary-dark);
+}
+
+.bm-empty-global__cta--secondary:hover,
+.bm-empty-global__cta--secondary:focus-visible {
+  background: var(--primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------
+   5. Content sections (Markets / Produce)
+   --------------------------------------------------------------- */
+
+.bm-section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(4rem, 7vw, 6rem);
+}
+
+.bm-section--alt {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.bm-section[hidden] {
+  display: none;
+}
+
+/* ---------------------------------------------------------------
+   6. Section headers
+   --------------------------------------------------------------- */
+
+.bm-section__header {
+  margin-bottom: clamp(2rem, 3vw, 2.75rem);
+}
+
+.bm-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+  margin: 0 0 0.75rem;
+  opacity: 0.75;
+}
+
+.bm-section__eyebrow svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.bm-section__header h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+}
+
+/* Accent colour on second line of heading */
+.bm-section__heading-accent {
+  color: var(--primary);
+}
+
+/* Count badge */
+.bm-section__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(47, 107, 79, 0.12);
+  color: var(--primary-dark);
+  border: 1px solid rgba(47, 107, 79, 0.18);
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  letter-spacing: 0;
+}
+
+.bm-section__subtext {
+  margin: 0;
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  max-width: 56ch;
+}
+
+/* ---------------------------------------------------------------
+   7. Section empty states
+   --------------------------------------------------------------- */
+
+.bm-section__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.9rem;
+  padding: 2.5rem 2rem;
+  background: var(--bg);
+  border: 1.5px dashed var(--border);
+  border-radius: 20px;
+  color: var(--ink-soft);
+}
+
+.bm-section__empty[hidden] {
+  display: none;
+}
+
+.bm-section__empty svg {
+  width: 28px;
+  height: 28px;
+  color: var(--primary-light);
+  opacity: 0.5;
+}
+
+.bm-section__empty p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.bm-section__empty a {
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------
+   8. Remove buttons (market card + produce card)
+   --------------------------------------------------------------- */
+
+/* Market card remove — same position as bookmark btn, destructive hover */
+.bm-remove-btn {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: var(--ink-soft) !important;
+}
+
+.bm-remove-btn:hover,
+.bm-remove-btn:focus-visible {
+  background: rgba(201, 74, 74, 0.12) !important;
+  color: var(--status-closed) !important;
+  transform: scale(1.06);
+}
+
+/* Produce card remove — floating pill top-right of media */
+.produce-card__remove-wrap {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+}
+
+.bm-produce-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.bm-produce-remove-btn:hover,
+.bm-produce-remove-btn:focus-visible {
+  background: rgba(201, 74, 74, 0.12);
+  color: var(--status-closed);
+  transform: scale(1.06);
+}
+
+.bm-produce-remove-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Card fade-out on remove */
+@keyframes bmCardRemove {
+  from { opacity: 1; transform: scale(1);    }
+  to   { opacity: 0; transform: scale(0.94); }
+}
+
+.bm-card--removing {
+  animation: bmCardRemove 0.22s ease forwards;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------
+   9. Note widget
+   --------------------------------------------------------------- */
+
+.bm-note-slot {
+  margin: 0.6rem 0 0.25rem;
+}
+
+.bm-note-preview {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+  word-break: break-word;
+}
+
+/* hidden attribute must win over display:flex */
+.bm-note-preview[hidden] {
+  display: none;
+}
+
+.bm-note-preview__icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--primary-dark);
+  opacity: 0.7;
+}
+
+.bm-note-preview__icon svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.bm-note-preview__text {
+  flex: 1;
+}
+
+/* Delete (cross) button inside note preview */
+.bm-note-delete {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  opacity: 0.5;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease;
+  margin-left: auto;
+}
+
+.bm-note-delete:hover,
+.bm-note-delete:focus-visible {
+  opacity: 1;
+  color: var(--status-closed);
+  background: rgba(201, 74, 74, 0.08);
+}
+
+.bm-note-delete svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* ---------------------------------------------------------------
+   Note widget — enter / exit animations
+   --------------------------------------------------------------- */
+
+@keyframes bmNoteEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bmNoteExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+}
+
+.bm-note--enter {
+  animation: bmNoteEnter 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.bm-note--exit {
+  animation: bmNoteExit 0.18s ease forwards;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bm-note--enter,
+  .bm-note--exit {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.bm-note-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0;
+  background: none;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+}
+
+.bm-note-trigger:hover,
+.bm-note-trigger:focus-visible {
+  opacity: 1;
+}
+
+.bm-note-trigger svg {
+  width: 12px;
+  height: 12px;
+}
+
+.bm-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.bm-note-form[hidden] {
+  display: none;
+}
+
+.bm-note-textarea {
+  width: 100%;
+  min-height: 68px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink);
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bm-note-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(47, 107, 79, 0.12);
+}
+
+.bm-note-form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bm-note-save {
+  padding: 0.38rem 0.9rem;
+  background: var(--primary);
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.bm-note-save:hover,
+.bm-note-save:focus-visible {
+  background: var(--primary-dark);
+}
+
+.bm-note-cancel {
+  padding: 0.38rem 0.9rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.bm-note-cancel:hover,
+.bm-note-cancel:focus-visible {
+  border-color: var(--ink-soft);
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------
+   10. Toast notification
+   --------------------------------------------------------------- */
+
+.bm-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(1rem);
+  padding: 0.65rem 1.35rem;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.bm-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------------------------------------------------------------
+   11. Card fade-out animation
+   --------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .bm-hero-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bm-hero-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bm-empty-global__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .bm-empty-global__cta {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .bm-collection-bar__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .bm-collection-bar__stats {
+    gap: 0;
+  }
+
+  .bm-collection-bar__stat:first-child {
+    padding-left: 0;
+  }
+}
+
+/* ── 705px → 426px: one row, shrink everything progressively ── */
+@media (max-width: 705px) {
+  .bm-collection-bar__inner { gap: 0.8rem; }
+  .bm-collection-bar__stat { padding: 0.28rem 0.7rem; gap: 0.25rem; }
+  .bm-collection-bar__stat-number { font-size: 0.95rem; }
+  .bm-collection-bar__stat-label { font-size: 0.68rem; white-space: nowrap; }
+  .bm-collection-bar__btn { font-size: 0.72rem; padding: 0.32rem 0.7rem; gap: 0.2rem; }
+  .bm-collection-bar__btn svg { width: 11px; height: 11px; }
+  .bm-collection-bar__actions { gap: 0.22rem; }
+}
+
+@media (max-width: 600px) {
+  .bm-collection-bar__inner { gap: 0.5rem; flex-wrap: nowrap; }
+  .bm-collection-bar__stat { padding: 0.22rem 0.5rem; gap: 0.18rem; }
+  .bm-collection-bar__stat-number { font-size: 0.85rem; }
+  .bm-collection-bar__stat-label { font-size: 0.6rem; }
+  .bm-collection-bar__stat svg { width: 11px; height: 11px; }
+  .bm-collection-bar__divider { height: 15px; }
+  .bm-collection-bar__btn { font-size: 0.62rem; padding: 0.26rem 0.5rem; gap: 0.15rem; }
+  .bm-collection-bar__btn svg { width: 10px; height: 10px; }
+  .bm-collection-bar__actions { gap: 0.18rem; }
+}
+
+@media (max-width: 520px) {
+  .bm-collection-bar__inner { gap: 0.35rem; flex-wrap: nowrap; }
+  .bm-collection-bar__stat { padding: 0.18rem 0.35rem; gap: 0.12rem; }
+  .bm-collection-bar__stat-number { font-size: 0.76rem; }
+  .bm-collection-bar__stat-label { font-size: 0.54rem; }
+  .bm-collection-bar__stat svg { width: 10px; height: 10px; }
+  .bm-collection-bar__divider { height: 13px; }
+  .bm-collection-bar__btn { font-size: 0.56rem; padding: 0.22rem 0.38rem; gap: 0.1rem; }
+  .bm-collection-bar__btn svg { width: 9px; height: 9px; }
+  .bm-collection-bar__actions { gap: 0.14rem; }
+}
+
+@media (max-width: 460px) {
+  .bm-collection-bar__inner { gap: 0.2rem; flex-wrap: nowrap; }
+  .bm-collection-bar__stat { padding: 0.14rem 0.22rem; gap: 0.08rem; }
+  .bm-collection-bar__stat-number { font-size: 0.68rem; }
+  .bm-collection-bar__stat-label { font-size: 0.46rem; }
+  .bm-collection-bar__stat svg { width: 8px; height: 8px; }
+  .bm-collection-bar__divider { height: 11px; }
+  .bm-collection-bar__btn { font-size: 0.48rem; padding: 0.18rem 0.28rem; gap: 0.08rem; }
+  .bm-collection-bar__btn svg { width: 8px; height: 8px; }
+  .bm-collection-bar__actions { gap: 0.1rem; }
+}
+
+/* ── ≤425px: wrap allowed, center align ── */
+@media (max-width: 425px) {
+  .bm-collection-bar__inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+  .bm-collection-bar__stats { justify-content: center; }
+  .bm-collection-bar__actions { justify-content: center; }
+}
+

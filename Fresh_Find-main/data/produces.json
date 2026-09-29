@@ -1,0 +1,674 @@
+[
+  {
+    "id": "produce-001",
+    "name": "Sindhri Mangoes",
+    "category": "Fruits",
+    "price": { "amount": 280, "unit": "kg" },
+    "description": "Premium Pakistani mangoes, golden-orange flesh with rich sweetness and minimal fiber. Peak harvest from May to July.",
+    "image": "https://i.pinimg.com/736x/7e/d7/ee/7ed7ee7147d630bc862599b6c6226295.jpg",
+    "season": {
+      "label": "May – July",
+      "months": [5, 6, 7]
+    },
+    "marketIds": ["empress-market", "jodia-bazaar", "malir-produce-market"],
+    "keywords": ["mango", "sindhri", "fruit", "summer", "sweet"]
+  },
+  {
+    "id": "produce-002",
+    "name": "Bananas",
+    "category": "Fruits",
+    "price": { "amount": 170, "unit": "kg" },
+    "description": "Fresh local bananas, available year-round. Sweet, creamy texture perfect for snacking or smoothies.",
+    "image": "https://i.pinimg.com/736x/ee/33/15/ee33154590c2e62de4da0f69cb76798a.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["empress-market", "jodia-bazaar", "khayaban-e-bukhari-market", "gulshan-e-iqbal-block-5-market", "do-darya-fresh-market", "nazimabad-no-2-market", "korangi-fresh-market"],
+    "keywords": ["banana", "fruit", "year-round", "fresh"]
+  },
+  {
+    "id": "produce-003",
+    "name": "Guavas",
+    "category": "Fruits",
+    "price": { "amount": 160, "unit": "kg" },
+    "description": "Fragrant local guavas with crisp white or pink flesh. High in vitamin C, best in winter months.",
+    "image": "https://images.unsplash.com/photo-1536511132770-e5058c7e8c46?w=600&q=80",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["clifton-beachside-market", "malir-produce-market"],
+    "keywords": ["guava", "fruit", "winter", "vitamin c"]
+  },
+  {
+    "id": "produce-004",
+    "name": "Oranges",
+    "category": "Fruits",
+    "price": { "amount": 220, "unit": "kg" },
+    "description": "Juicy citrus oranges, sweet and tangy. Perfect for fresh juice or eating whole during winter season.",
+    "image": "https://i.pinimg.com/1200x/5c/19/60/5c196082e61188cb2794664bf7974174.jpg",
+    "season": {
+      "label": "December – March",
+      "months": [12, 1, 2, 3]
+    },
+    "marketIds": ["gulshan-e-iqbal-block-5-market"],
+    "keywords": ["orange", "citrus", "fruit", "winter", "juice"]
+  },
+  {
+    "id": "produce-005",
+    "name": "Watermelons",
+    "category": "Fruits",
+    "price": { "amount": 90, "unit": "kg" },
+    "description": "Large, refreshing watermelons with sweet red flesh. Hydrating and perfect for Karachi's hot summers.",
+    "image": "https://i.pinimg.com/236x/53/ec/53/53ec5395c8c21ed896de5bc407a0b8ca.jpg",
+    "season": {
+      "label": "April – August",
+      "months": [4, 5, 6, 7, 8]
+    },
+    "marketIds": ["jodia-bazaar"],
+    "keywords": ["watermelon", "fruit", "summer", "refreshing", "hydrating"]
+  },
+  {
+    "id": "produce-006",
+    "name": "Papayas",
+    "category": "Fruits",
+    "price": { "amount": 180, "unit": "kg" },
+    "description": "Ripe papayas with orange flesh, rich in enzymes and vitamins. Great for digestion and available year-round.",
+    "image": "https://i.pinimg.com/1200x/00/57/26/005726309c7dd52363d90541426980ce.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["do-darya-fresh-market"],
+    "keywords": ["papaya", "fruit", "tropical", "digestive", "year-round"]
+  },
+  {
+    "id": "produce-007",
+    "name": "Tomatoes",
+    "category": "Vegetables",
+    "price": { "amount": 160, "unit": "kg" },
+    "description": "Fresh, firm tomatoes perfect for cooking or salads. Essential ingredient in Pakistani cuisine.",
+    "image": "https://i.pinimg.com/1200x/60/0f/72/600f725c4c781f216fc7992390775a7c.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["empress-market", "nazimabad-no-2-market"],
+    "keywords": ["tomato", "vegetable", "cooking", "salad", "year-round"]
+  },
+  {
+    "id": "produce-008",
+    "name": "Onions",
+    "category": "Vegetables",
+    "price": { "amount": 140, "unit": "kg" },
+    "description": "Red and white onions, staple vegetable for Pakistani cooking. Sharp flavor that mellows when cooked.",
+    "image": "https://i.pinimg.com/736x/86/b5/4d/86b54d75ac7c7eb4f8f2a623752503a9.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["empress-market", "nazimabad-no-2-market", "korangi-fresh-market"],
+    "keywords": ["onion", "vegetable", "cooking", "staple", "year-round"]
+  },
+  {
+    "id": "produce-009",
+    "name": "Green Chillies",
+    "category": "Vegetables",
+    "price": { "amount": 350, "unit": "kg" },
+    "description": "Fresh hot green chillies, essential for adding heat to Pakistani dishes. Varying spice levels available.",
+    "image": "https://i.pinimg.com/1200x/79/a3/91/79a391ebcefc812bfbedca87071c6492.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["khayaban-e-bukhari-market"],
+    "keywords": ["chilli", "green chilli", "vegetable", "spicy", "hot"]
+  },
+  {
+    "id": "produce-010",
+    "name": "Cucumbers",
+    "category": "Vegetables",
+    "price": { "amount": 130, "unit": "kg" },
+    "description": "Crisp, refreshing cucumbers perfect for salads and raita. Best in cooler months.",
+    "image": "https://i.pinimg.com/1200x/a6/7e/cc/a67ecc87ec01c891caf9441b16993442.jpg",
+    "season": {
+      "label": "October – April",
+      "months": [10, 11, 12, 1, 2, 3, 4]
+    },
+    "marketIds": ["clifton-beachside-market"],
+    "keywords": ["cucumber", "vegetable", "salad", "raita", "fresh"]
+  },
+  {
+    "id": "produce-011",
+    "name": "Cabbage",
+    "category": "Vegetables",
+    "price": { "amount": 90, "unit": "piece" },
+    "description": "Fresh green cabbage heads, crunchy and versatile. Great for coleslaw or cooked dishes.",
+    "image": "https://i.pinimg.com/736x/3a/f0/d3/3af0d368ced1effd82b8497cd82ba2c4.jpg",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["jodia-bazaar"],
+    "keywords": ["cabbage", "vegetable", "winter", "coleslaw"]
+  },
+  {
+    "id": "produce-012",
+    "name": "Cauliflower",
+    "category": "Vegetables",
+    "price": { "amount": 130, "unit": "piece" },
+    "description": "White, firm cauliflower heads. Popular in Pakistani cooking for gobhi dishes and curries.",
+    "image": "https://i.pinimg.com/736x/09/ce/0c/09ce0c524058c6f3d33a59c8a28b37bd.jpg",
+    "season": {
+      "label": "November – February",
+      "months": [11, 12, 1, 2]
+    },
+    "marketIds": ["jodia-bazaar"],
+    "keywords": ["cauliflower", "gobhi", "vegetable", "winter", "curry"]
+  },
+  {
+    "id": "produce-013",
+    "name": "Coriander",
+    "category": "Herbs",
+    "price": { "amount": 40, "unit": "bunch" },
+    "description": "Fresh coriander leaves (dhania), essential herb in Pakistani cooking. Aromatic and flavorful for garnishing.",
+    "image": "https://i.pinimg.com/1200x/ea/95/dd/ea95ddeee6d881d1bf16f8cf1df80cd9.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["empress-market", "khayaban-e-bukhari-market", "clifton-beachside-market"],
+    "keywords": ["coriander", "dhania", "herb", "garnish", "fresh"]
+  },
+  {
+    "id": "produce-014",
+    "name": "Mint",
+    "category": "Herbs",
+    "price": { "amount": 40, "unit": "bunch" },
+    "description": "Fresh mint leaves (pudina), cooling herb perfect for chutneys, raita and drinks.",
+    "image": "https://i.pinimg.com/1200x/6e/2f/6a/6e2f6a4be3cdca135dec5274083d0fff.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["empress-market", "clifton-beachside-market", "do-darya-fresh-market"],
+    "keywords": ["mint", "pudina", "herb", "chutney", "raita"]
+  },
+  {
+    "id": "produce-015",
+    "name": "Basil",
+    "category": "Herbs",
+    "price": { "amount": 60, "unit": "bunch" },
+    "description": "Aromatic basil leaves with sweet, peppery flavor. Used in both Eastern and Western cooking.",
+    "image": "https://i.pinimg.com/1200x/a9/12/7a/a9127ab78d2343272e0909edb1a29c91.jpg",
+    "season": {
+      "label": "March – October",
+      "months": [3, 4, 5, 6, 7, 8, 9, 10]
+    },
+    "marketIds": ["north-nazimabad-farmers-market"],
+    "keywords": ["basil", "herb", "aromatic", "fresh"]
+  },
+  {
+    "id": "produce-016",
+    "name": "Curry Leaves",
+    "category": "Herbs",
+    "price": { "amount": 50, "unit": "bunch" },
+    "description": "Fresh curry leaves (kari patta), essential for tempering dals and curries with distinctive aroma.",
+    "image": "https://i.pinimg.com/736x/ec/c9/cc/ecc9ccf1013bff44d0f497444852fc15.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["empress-market", "khayaban-e-bukhari-market"],
+    "keywords": ["curry leaves", "kari patta", "herb", "tempering", "dal"]
+  },
+  {
+    "id": "produce-017",
+    "name": "Dill",
+    "category": "Herbs",
+    "price": { "amount": 60, "unit": "bunch" },
+    "description": "Feathery dill leaves with distinctive anise-like flavor. Great for fish dishes and pickles.",
+    "image": "https://i.pinimg.com/1200x/b5/06/57/b50657f2f6e0906f7befd48fd112cb13.jpg",
+    "season": {
+      "label": "November – April",
+      "months": [11, 12, 1, 2, 3, 4]
+    },
+    "marketIds": ["north-nazimabad-farmers-market"],
+    "keywords": ["dill", "herb", "fish", "pickle"]
+  },
+  {
+    "id": "produce-018",
+    "name": "Parsley",
+    "category": "Herbs",
+    "price": { "amount": 70, "unit": "bunch" },
+    "description": "Fresh flat-leaf parsley, bright and peppery. Popular for Middle Eastern and Mediterranean dishes.",
+    "image": "https://i.pinimg.com/1200x/9a/85/a0/9a85a0e45dc72072bdc72ee95fc5f18e.jpg",
+    "season": {
+      "label": "October – April",
+      "months": [10, 11, 12, 1, 2, 3, 4]
+    },
+    "marketIds": ["clifton-beachside-market"],
+    "keywords": ["parsley", "herb", "fresh", "mediterranean"]
+  },
+  {
+    "id": "produce-019",
+    "name": "Spinach",
+    "category": "Leafy Greens",
+    "price": { "amount": 90, "unit": "bunch" },
+    "description": "Fresh spinach (palak), rich in iron and vitamins. Perfect for saag and other traditional dishes.",
+    "image": "https://i.pinimg.com/1200x/a0/e0/15/a0e015ac679827273af13311b49a8ed2.jpg",
+    "season": {
+      "label": "October – March",
+      "months": [10, 11, 12, 1, 2, 3]
+    },
+    "marketIds": ["khayaban-e-bukhari-market", "gulshan-chowrangi-vegetable-market", "clifton-beachside-market", "malir-produce-market"],
+    "keywords": ["spinach", "palak", "leafy green", "saag", "iron"]
+  },
+  {
+    "id": "produce-020",
+    "name": "Lettuce",
+    "category": "Leafy Greens",
+    "price": { "amount": 100, "unit": "piece" },
+    "description": "Crisp lettuce leaves, perfect for fresh salads. Multiple varieties including iceberg and romaine.",
+    "image": "https://i.pinimg.com/1200x/3f/18/c7/3f18c78e387b758094912e984a59502f.jpg",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["khayaban-e-bukhari-market"],
+    "keywords": ["lettuce", "leafy green", "salad", "crisp", "fresh"]
+  },
+  {
+    "id": "produce-021",
+    "name": "Fenugreek Leaves",
+    "category": "Leafy Greens",
+    "price": { "amount": 70, "unit": "bunch" },
+    "description": "Fresh methi leaves with distinctive bitter-sweet taste. Popular in parathas and curries.",
+    "image": "https://i.pinimg.com/1200x/af/2c/c2/af2cc2b918ffe456f86a2ab61237541d.jpg",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["gulshan-chowrangi-vegetable-market"],
+    "keywords": ["fenugreek", "methi", "leafy green", "paratha", "curry"]
+  },
+  {
+    "id": "produce-022",
+    "name": "Kale",
+    "category": "Leafy Greens",
+    "price": { "amount": 120, "unit": "bunch" },
+    "description": "Nutritious kale leaves, superfood rich in vitamins and antioxidants. Growing in popularity.",
+    "image": "https://i.pinimg.com/1200x/bd/3c/4b/bd3c4b82008d17283852031907f988b6.jpg",
+    "season": {
+      "label": "November – February",
+      "months": [11, 12, 1, 2]
+    },
+    "marketIds": ["north-nazimabad-farmers-market"],
+    "keywords": ["kale", "leafy green", "superfood", "healthy", "winter"]
+  },
+  {
+    "id": "produce-023",
+    "name": "Mustard Greens",
+    "category": "Leafy Greens",
+    "price": { "amount": 80, "unit": "bunch" },
+    "description": "Peppery mustard greens (sarson), traditional winter vegetable perfect for saag.",
+    "image": "https://i.pinimg.com/1200x/4e/b5/ed/4eb5ed5fb0ab875778bfa61bc301da49.jpg",
+    "season": {
+      "label": "December – February",
+      "months": [12, 1, 2]
+    },
+    "marketIds": ["gulshan-chowrangi-vegetable-market"],
+    "keywords": ["mustard greens", "sarson", "leafy green", "saag", "winter"]
+  },
+  {
+    "id": "produce-024",
+    "name": "Arugula",
+    "category": "Leafy Greens",
+    "price": { "amount": 150, "unit": "bunch" },
+    "description": "Peppery arugula leaves with distinctive flavor. Popular in modern salads and Mediterranean dishes.",
+    "image": "https://i.pinimg.com/236x/4d/da/7f/4dda7f97343d0f40ec6b7c602074d98d.jpg",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["dha-phase-6-farmers-market"],
+    "keywords": ["arugula", "rocket", "leafy green", "salad", "peppery"]
+  },
+  {
+    "id": "produce-025",
+    "name": "Potatoes",
+    "category": "Roots & Tubers",
+    "price": { "amount": 110, "unit": "kg" },
+    "description": "Versatile potatoes, staple ingredient in Pakistani cuisine. Available year-round in various sizes.",
+    "image": "https://i.pinimg.com/736x/4e/f8/a4/4ef8a46e95231fa43739771a8180e139.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["empress-market", "jodia-bazaar", "gulshan-chowrangi-vegetable-market", "korangi-fresh-market"],
+    "keywords": ["potato", "aloo", "root", "tuber", "staple"]
+  },
+  {
+    "id": "produce-026",
+    "name": "Sweet Potatoes",
+    "category": "Roots & Tubers",
+    "price": { "amount": 170, "unit": "kg" },
+    "description": "Sweet, nutritious sweet potatoes (shakarkandi). Popular roasted or in traditional winter treats.",
+    "image": "https://i.pinimg.com/736x/e2/44/bf/e244bf96789f603bc8a201d2f10d2a0f.jpg",
+    "season": {
+      "label": "November – February",
+      "months": [11, 12, 1, 2]
+    },
+    "marketIds": ["jodia-bazaar", "malir-produce-market"],
+    "keywords": ["sweet potato", "shakarkandi", "root", "winter", "roasted"]
+  },
+  {
+    "id": "produce-027",
+    "name": "Carrots",
+    "category": "Roots & Tubers",
+    "price": { "amount": 130, "unit": "kg" },
+    "description": "Fresh orange carrots (gajar), sweet and crunchy. Perfect for salads, cooking, or traditional gajar halwa.",
+    "image": "https://i.pinimg.com/1200x/d2/a3/5c/d2a35c960f9a5a0b714b96da5477ca30.jpg",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["gulshan-chowrangi-vegetable-market"],
+    "keywords": ["carrot", "gajar", "root", "winter", "halwa"]
+  },
+  {
+    "id": "produce-028",
+    "name": "Turnips",
+    "category": "Roots & Tubers",
+    "price": { "amount": 100, "unit": "kg" },
+    "description": "White turnips (shaljam), mild-flavored root vegetable used in curries and pickles.",
+    "image": "https://i.pinimg.com/1200x/30/b7/05/30b70570efcea3ffa4d1c0615a592079.jpg",
+    "season": {
+      "label": "November – February",
+      "months": [11, 12, 1, 2]
+    },
+    "marketIds": ["gulshan-chowrangi-vegetable-market"],
+    "keywords": ["turnip", "shaljam", "root", "winter", "pickle"]
+  },
+  {
+    "id": "produce-029",
+    "name": "Ginger",
+    "category": "Roots & Tubers",
+    "price": { "amount": 700, "unit": "kg" },
+    "description": "Fresh ginger root (adrak), essential for Pakistani cooking and chai. Strong, spicy flavor.",
+    "image": "https://i.pinimg.com/736x/9d/e0/61/9de061279e708f59ed0b4f1e92935375.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["empress-market"],
+    "keywords": ["ginger", "adrak", "root", "spice", "chai"]
+  },
+  {
+    "id": "produce-030",
+    "name": "Beetroot",
+    "category": "Roots & Tubers",
+    "price": { "amount": 160, "unit": "kg" },
+    "description": "Deep red beetroot, earthy and sweet. Rich in nutrients, great for salads or roasting.",
+    "image": "https://i.pinimg.com/1200x/04/83/f3/0483f3ac1767c63ac813ca437c42f0e7.jpg",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["north-nazimabad-farmers-market"],
+    "keywords": ["beetroot", "beet", "root", "winter", "salad"]
+  },
+  {
+    "id": "produce-031",
+    "name": "Fresh Milk",
+    "category": "Dairy",
+    "price": { "amount": 240, "unit": "litre" },
+    "description": "Fresh dairy milk from local sources. Available daily for home delivery or market pickup.",
+    "image": "https://i.pinimg.com/236x/e5/5f/9e/e55f9e19f396184d1e4974ddea27b899.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["do-darya-fresh-market", "nazimabad-no-2-market", "korangi-fresh-market"],
+    "keywords": ["milk", "dairy", "fresh", "daily"]
+  },
+  {
+    "id": "produce-032",
+    "name": "Yoghurt",
+    "category": "Dairy",
+    "price": { "amount": 220, "unit": "kg" },
+    "description": "Fresh homemade-style yoghurt (dahi), essential for Pakistani cuisine and cooling raitas.",
+    "image": "https://i.pinimg.com/1200x/e0/2a/f0/e02af07eeedbad3cfa41a7a4b939fe19.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["gulshan-e-iqbal-block-5-market"],
+    "keywords": ["yoghurt", "dahi", "dairy", "raita", "fresh"]
+  },
+  {
+    "id": "produce-033",
+    "name": "Desi Ghee",
+    "category": "Dairy",
+    "price": { "amount": 1800, "unit": "kg" },
+    "description": "Pure desi ghee (clarified butter), golden and aromatic. Essential for authentic Pakistani cooking.",
+    "image": "https://i.pinimg.com/1200x/cd/64/e7/cd64e7ccbbfe2d27a7779dc905b2fc2d.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["dha-phase-6-farmers-market"],
+    "keywords": ["ghee", "desi ghee", "dairy", "butter", "cooking"]
+  },
+  {
+    "id": "produce-034",
+    "name": "Cottage Cheese",
+    "category": "Dairy",
+    "price": { "amount": 800, "unit": "kg" },
+    "description": "Fresh cottage cheese (paneer), soft and mild. Perfect for curries and grilled dishes.",
+    "image": "https://i.pinimg.com/736x/e6/1a/14/e61a140a6d3ea4aa94b9fe6dd0e3e970.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["dha-phase-6-farmers-market"],
+    "keywords": ["paneer", "cottage cheese", "dairy", "curry", "fresh"]
+  },
+  {
+    "id": "produce-035",
+    "name": "Cream",
+    "category": "Dairy",
+    "price": { "amount": 900, "unit": "litre" },
+    "description": "Fresh dairy cream for cooking and desserts. Rich and smooth texture for traditional dishes.",
+    "image": "https://i.pinimg.com/736x/f2/9e/95/f29e954a1126b6b219b1d8418c37d19b.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["do-darya-fresh-market"],
+    "keywords": ["cream", "dairy", "cooking", "dessert", "fresh"]
+  },
+  {
+    "id": "produce-036",
+    "name": "Butter",
+    "category": "Dairy",
+    "price": { "amount": 1300, "unit": "kg" },
+    "description": "Fresh dairy butter, salted and unsalted varieties. Perfect for cooking and spreading.",
+    "image": "https://i.pinimg.com/1200x/ad/0d/4f/ad0d4f293944b871766284b1122af1b0.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["nazimabad-no-2-market"],
+    "keywords": ["butter", "dairy", "cooking", "fresh"]
+  },
+  {
+    "id": "produce-037",
+    "name": "Farm Eggs",
+    "category": "Eggs",
+    "price": { "amount": 400, "unit": "dozen" },
+    "description": "Fresh farm eggs from free-range chickens. Rich orange yolks and superior taste.",
+    "image": "https://i.pinimg.com/1200x/98/04/56/980456d568b2df48595b7516a4530d5a.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["dha-phase-6-farmers-market", "gulshan-e-iqbal-block-5-market", "do-darya-fresh-market", "nazimabad-no-2-market", "korangi-fresh-market"],
+    "keywords": ["eggs", "farm eggs", "free-range", "fresh", "organic"]
+  },
+  {
+    "id": "produce-038",
+    "name": "Brown Eggs",
+    "category": "Eggs",
+    "price": { "amount": 420, "unit": "dozen" },
+    "description": "Fresh brown eggs, nutritious and versatile. Perfect for all cooking and baking needs.",
+    "image": "https://i.pinimg.com/736x/74/11/2b/74112b8dd45a9013ba6100ef1bb963d2.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["dha-phase-6-farmers-market", "nazimabad-no-2-market"],
+    "keywords": ["eggs", "brown eggs", "fresh", "cooking", "baking"]
+  },
+  {
+    "id": "produce-039",
+    "name": "Organic Eggs",
+    "category": "Eggs",
+    "price": { "amount": 580, "unit": "dozen" },
+    "description": "Certified organic eggs from organically-fed hens. Higher welfare standards and richer flavor.",
+    "image": "https://i.pinimg.com/1200x/17/7a/b0/177ab058e2c62e292d722f38a7d9e02b.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["dha-phase-6-farmers-market", "north-nazimabad-farmers-market"],
+    "keywords": ["eggs", "organic", "certified", "welfare", "fresh"]
+  },
+  {
+    "id": "produce-040",
+    "name": "Quail Eggs",
+    "category": "Eggs",
+    "price": { "amount": 350, "unit": "dozen" },
+    "description": "Delicate quail eggs, small but packed with nutrients. Popular in upscale cuisine.",
+    "image": "https://i.pinimg.com/1200x/1d/0b/51/1d0b510b23a7894b55c76c522e07f12a.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["dha-phase-6-farmers-market"],
+    "keywords": ["quail eggs", "eggs", "delicate", "gourmet", "nutritious"]
+  },
+  {
+    "id": "produce-041",
+    "name": "Duck Eggs",
+    "category": "Eggs",
+    "price": { "amount": 500, "unit": "dozen" },
+    "description": "Large duck eggs with rich, creamy yolks. Excellent for baking and creating fluffy textures.",
+    "image": "https://i.pinimg.com/1200x/e2/d3/ce/e2d3cec6666e3b2bee2ef1ab7c661e25.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["north-nazimabad-farmers-market"],
+    "keywords": ["duck eggs", "eggs", "baking", "rich", "creamy"]
+  },
+  {
+    "id": "produce-042",
+    "name": "Egg Whites",
+    "category": "Eggs",
+    "price": { "amount": 300, "unit": "litre" },
+    "description": "Separated egg whites, perfect for meringues and health-conscious cooking. Pasteurized and fresh.",
+    "image": "https://i.pinimg.com/1200x/67/68/82/6768821a5b7868344662c9094141f098.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["gulshan-e-iqbal-block-5-market"],
+    "keywords": ["egg whites", "eggs", "healthy", "meringue", "pasteurized"]
+  },
+  {
+    "id": "produce-043",
+    "name": "Organic Spinach",
+    "category": "Organic / Farm Produce",
+    "price": { "amount": 160, "unit": "bunch" },
+    "description": "Organically grown spinach, free from chemical pesticides. Rich in nutrients and flavor.",
+    "image": "https://i.pinimg.com/1200x/b8/65/03/b86503dff812bdd8b645a55debae783b.jpg",
+    "season": {
+      "label": "October – March",
+      "months": [10, 11, 12, 1, 2, 3]
+    },
+    "marketIds": ["dha-phase-6-farmers-market"],
+    "keywords": ["organic", "spinach", "farm produce", "pesticide-free", "healthy"]
+  },
+  {
+    "id": "produce-044",
+    "name": "Organic Carrots",
+    "category": "Organic / Farm Produce",
+    "price": { "amount": 260, "unit": "kg" },
+    "description": "Farm-fresh organic carrots, sweeter and more flavorful than conventional. No synthetic chemicals.",
+    "image": "https://i.pinimg.com/736x/23/aa/33/23aa3316b5ecc00a60e55afce872e5c1.jpg",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["north-nazimabad-farmers-market"],
+    "keywords": ["organic", "carrots", "farm produce", "sweet", "natural"]
+  },
+  {
+    "id": "produce-045",
+    "name": "Organic Honey",
+    "category": "Organic / Farm Produce",
+    "price": { "amount": 1800, "unit": "kg" },
+    "description": "Pure organic honey from local beekeepers. Unprocessed, natural sweetener with medicinal properties.",
+    "image": "https://i.pinimg.com/1200x/6a/88/b3/6a88b30cbbaaa47c255cd8e4ca7b0af4.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["gulshan-e-iqbal-block-5-market"],
+    "keywords": ["honey", "organic", "farm produce", "natural", "sweetener"]
+  },
+  {
+    "id": "produce-046",
+    "name": "Cherry Tomatoes",
+    "category": "Organic / Farm Produce",
+    "price": { "amount": 450, "unit": "kg" },
+    "description": "Sweet, bite-sized cherry tomatoes from organic farms. Perfect for salads and snacking.",
+    "image": "https://i.pinimg.com/1200x/60/0f/72/600f725c4c781f216fc7992390775a7c.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["dha-phase-6-farmers-market"],
+    "keywords": ["cherry tomatoes", "organic", "farm produce", "sweet", "salad"]
+  },
+  {
+    "id": "produce-047",
+    "name": "Farm-Fresh Tomatoes",
+    "category": "Organic / Farm Produce",
+    "price": { "amount": 200, "unit": "kg" },
+    "description": "Vine-ripened tomatoes straight from nearby farms. Superior taste and texture.",
+    "image": "https://i.pinimg.com/1200x/bd/64/4b/bd644b475fad4b9aeb4b1663023adba3.jpg",
+    "season": {
+      "label": "Year-round",
+      "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    "marketIds": ["malir-produce-market"],
+    "keywords": ["tomatoes", "farm produce", "vine-ripened", "fresh", "organic"]
+  },
+  {
+    "id": "produce-048",
+    "name": "Radishes",
+    "category": "Organic / Farm Produce",
+    "price": { "amount": 140, "unit": "kg" },
+    "description": "Crisp organic radishes (mooli), peppery and refreshing. Perfect for salads and parathas.",
+    "image": "https://i.pinimg.com/1200x/8e/54/9d/8e549de0f774666de3f5b82f7e863f77.jpg",
+    "season": {
+      "label": "November – March",
+      "months": [11, 12, 1, 2, 3]
+    },
+    "marketIds": ["north-nazimabad-farmers-market"],
+    "keywords": ["radish", "mooli", "organic", "farm produce", "crisp"]
+  }
+]

@@ -1,0 +1,873 @@
+/* =========================================================
+   FreshFind — Footer  (v3 — premium)
+   ========================================================= */
+
+/* ── Shell ─────────────────────────────────────────────── */
+.ff-footer {
+  position: relative;
+  background: #fff;
+  color: #3a3a3a;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  overflow: hidden;
+}
+
+/* ── Green Highlights Strip ────────────────────────────── */
+.ff-footer__highlights {
+  padding: .5rem;
+  background: #008236;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ff-footer__highlight-item {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.45rem;
+}
+
+.ff-footer__highlight-item:last-child {
+  border-right: none;
+}
+
+.ff-footer__hi-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ff-footer__hi-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.ff-footer__highlight-item strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  line-height: 1.3;
+}
+
+.ff-footer__highlight-item>span {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  line-height: 1.4;
+}
+
+/* radial glows removed */
+.ff-footer::before,
+.ff-footer::after {
+  display: none;
+}
+
+/* ── Top accent bar ────────────────────────────────────── */
+.ff-footer__topbar {
+  position: relative;
+  z-index: 1;
+  height: 3px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      #1f4635 10%,
+      #2f6b4f 30%,
+      #6fc378 50%,
+      #2f6b4f 70%,
+      #1f4635 90%,
+      transparent 100%);
+}
+
+/* ── Main content wrapper ──────────────────────────────── */
+.ff-footer__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-width, 1440px);
+  margin: 0 auto;
+  padding: 3.5rem var(--container-pad, 3rem) 2.75rem;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 2rem 3rem;
+  align-items: start;
+}
+
+/* ── Col 1 — Brand ─────────────────────────────────────── */
+.ff-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ff-footer__logo-link {
+  display: inline-block;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.ff-footer__logo-box {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: transform 0.25s ease;
+}
+
+.ff-footer__logo-link:hover .ff-footer__logo-box,
+.ff-footer__logo-link:focus-visible .ff-footer__logo-box {
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+.ff-footer__logo-box img {
+  height: 72px;
+  width: auto;
+  display: block;
+}
+
+.ff-footer__tagline {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #2f6b4f;
+  margin: 0;
+}
+
+.ff-footer__desc {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+  max-width: 26ch;
+  line-height: 1.75;
+}
+
+/* Social icons */
+.ff-footer__social {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+}
+
+.ff-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(31, 70, 53, 0.06);
+  border: 1px solid rgba(31, 70, 53, 0.12);
+  color: #555;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, transform 0.2s ease;
+}
+
+.ff-footer__social a:hover,
+.ff-footer__social a:focus-visible {
+  background: rgba(111, 195, 120, 0.15);
+  border-color: rgba(111, 195, 120, 0.45);
+  color: #2f6b4f;
+  transform: translateY(-3px);
+}
+
+.ff-footer__social svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ff-footer__social-svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+  object-fit: contain;
+}
+
+/* ── Shared column heading ─────────────────────────────── */
+.ff-footer__col-title {
+  display: block;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.8rem;
+  /* bumped from 0.68rem */
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  /* Section-title orange.
+     Source: CIE Lab 72.7183 31.8672 97.9407 → sRGB #FF9800. */
+  color: #FF9800;
+  position: relative;
+}
+
+.ff-footer__col-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: #6fc378;
+  border-radius: 2px;
+}
+
+/* ── Collapsible columns (headings + panels) ───────────────
+   Desktop : heading is static, the list is always visible.
+   ≤800px  : the heading becomes a tappable row with a
+             chevron and the list slides open / closed. */
+.ff-footer__col-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  color: inherit;
+}
+
+.ff-footer__col-toggle {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  pointer-events: none;
+  /* desktop — static heading only */
+}
+
+.ff-footer__chev {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #FF9800;
+  /* matches the section titles */
+  transition: transform 0.3s ease;
+}
+
+.ff-footer__chev svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* Panel — expanded by default, JS collapses it on mobile only.
+   (No overflow clipping here: the collapse rules live in the
+   ≤800px block so desktop focus outlines are never cut off.) */
+.ff-footer__panel {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+/* ── Col 2 — Quick Links ───────────────────────────────── */
+.ff-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.ff-footer__links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.5rem 0.38rem 0;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease, padding-left 0.15s ease;
+}
+
+.ff-footer__links a::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #6fc378;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.ff-footer__links a:hover,
+.ff-footer__links a:focus-visible {
+  color: #1F4635;
+  padding-left: 6px;
+  background: rgba(31, 70, 53, 0.05);
+}
+
+.ff-footer__links a:hover::before,
+.ff-footer__links a:focus-visible::before {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Active link state */
+.ff-footer__links a.is-active {
+  color: #2f6b4f;
+  font-weight: 600;
+  padding-left: 6px;
+  background: rgba(111, 195, 120, 0.12);
+}
+
+.ff-footer__links a.is-active::before {
+  opacity: 1;
+  transform: scale(1.5);
+  background: #2f6b4f;
+}
+
+/* ── Col 3 — Produce Guide teaser ─────────────────────── */
+.ff-footer__produce-links {
+  list-style: none;
+  margin: 0 0 1.1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.ff-footer__produce-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.5rem 0.38rem 0;
+  color: #555;
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease, padding-left 0.15s ease;
+}
+
+.ff-footer__produce-links a::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #6fc378;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.ff-footer__produce-links a:hover,
+.ff-footer__produce-links a:focus-visible {
+  color: #1F4635;
+  padding-left: 6px;
+  background: rgba(31, 70, 53, 0.05);
+}
+
+.ff-footer__produce-links a:hover::before {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Active link state for produce links */
+.ff-footer__produce-links a.is-active {
+  color: #2f6b4f;
+  font-weight: 600;
+  padding-left: 6px;
+  background: rgba(111, 195, 120, 0.12);
+}
+
+.ff-footer__produce-links a.is-active::before {
+  opacity: 1;
+  transform: scale(1.5);
+  background: #2f6b4f;
+}
+
+
+/* Season badge */
+.ff-footer__season-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(242, 183, 60, 0.12);
+  border: 1px solid rgba(242, 183, 60, 0.25);
+  color: #f2b33c;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.ff-footer__season-badge svg {
+  width: 11px;
+  height: 11px;
+}
+
+.ff-footer__season-badge:hover,
+.ff-footer__season-badge:focus-visible {
+  background: rgba(242, 183, 60, 0.20);
+  border-color: rgba(242, 183, 60, 0.45);
+  color: #f5c14e;
+}
+
+/* ── Col 4 — Chat + Contact ────────────────────────────── */
+.ff-footer__chat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: rgba(31, 70, 53, 0.05);
+  border: 1px solid rgba(111, 195, 120, 0.30);
+  border-radius: 14px;
+  text-decoration: none;
+  color: #1F4635;
+  margin-bottom: 1.1rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ff-footer__chat-card:hover,
+.ff-footer__chat-card:focus-visible {
+  background: rgba(47, 107, 79, 0.25);
+  border-color: rgba(111, 195, 120, 0.35);
+  transform: none;
+  box-shadow: none;
+}
+
+.ff-footer__chat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(111, 195, 120, 0.15);
+  flex-shrink: 0;
+  color: #2f6b4f;
+}
+
+.ff-footer__chat-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.ff-footer__chat-text {
+  flex: 1;
+}
+
+.ff-footer__chat-text strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1F4635;
+  margin-bottom: 0.1rem;
+}
+
+.ff-footer__chat-text span {
+  font-size: 0.76rem;
+  color: #777;
+}
+
+.ff-footer__chat-arrow {
+  color: #aaa;
+}
+
+.ff-footer__chat-arrow svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+/* Contact rows */
+.ff-footer__contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ff-footer__contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.84rem;
+  color: #666;
+}
+
+.ff-footer__contact svg {
+  width: 13px;
+  height: 13px;
+  color: #2f6b4f;
+  flex-shrink: 0;
+}
+
+.ff-footer__contact a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.ff-footer__contact a:hover,
+.ff-footer__contact a:focus-visible {
+  color: #1F4635;
+}
+
+/* ── Divider ───────────────────────────────────────────── */
+.ff-footer__divider {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 var(--container-pad, 3rem);
+}
+
+.ff-footer__divider::before,
+.ff-footer__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.ff-footer__divider-dot {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(47, 107, 79, 0.55);
+  white-space: nowrap;
+}
+
+.ff-footer__divider-dot svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── Bottom bar ────────────────────────────────────────── */
+.ff-footer__bar {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-width, 1440px);
+  margin: 0 auto;
+  padding: 1.1rem var(--container-pad, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.ff-footer__copy {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #999;
+}
+
+.ff-footer__slogan {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #2f6b4f;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease;
+}
+
+.ff-footer__slogan svg {
+  width: 11px;
+  height: 11px;
+}
+
+.ff-footer__slogan:hover {
+  color: #1F4635;
+}
+
+/* Bar links — Help / Privacy / Terms */
+.ff-footer__bar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.ff-footer__bar-links li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.5rem 0.38rem 0;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.80rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease, padding-left 0.15s ease;
+}
+
+.ff-footer__bar-links li a::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #6fc378;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.ff-footer__bar-links li a:hover,
+.ff-footer__bar-links li a:focus-visible {
+  color: #1F4635;
+  padding-left: 6px;
+  background: rgba(31, 70, 53, 0.05);
+}
+
+.ff-footer__bar-links li a:hover::before,
+.ff-footer__bar-links li a:focus-visible::before {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* ── Focus ─────────────────────────────────────────────── */
+.ff-footer a:focus-visible,
+.ff-footer button:focus-visible {
+  outline: 2px solid #2f6b4f;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Bottom bar light bg */
+.ff-footer__bar {
+  background: #f7faf8;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .ff-footer__inner {
+    grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+    gap: 1.75rem 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .ff-footer__divider {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .ff-footer__bar {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .ff-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 2.5rem;
+  }
+
+  .ff-footer__brand {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem 2rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .ff-footer__desc {
+    max-width: 100%;
+  }
+
+  .ff-footer__highlights {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  .ff-footer__highlight-item strong {
+    font-size: 0.6rem;
+  }
+
+  .ff-footer__highlight-item {
+    padding: 1rem .5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* ── Columns turn into accordion rows ── */
+  .ff-footer__col-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 52px;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .ff-footer__col-title {
+    flex: 1;
+    margin: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .ff-footer__col-title::after {
+    display: none;
+  }
+
+  .ff-footer__chev {
+    display: inline-flex;
+  }
+
+  .ff-footer__col.is-open .ff-footer__chev {
+    transform: rotate(180deg);
+  }
+
+  /* Rows are only interactive on mobile, so the hover/focus
+     tint is scoped here. */
+  .ff-footer__col-toggle:hover .ff-footer__col-title,
+  .ff-footer__col-toggle:focus-visible .ff-footer__col-title,
+  .ff-footer__col-toggle:hover .ff-footer__chev,
+  .ff-footer__col-toggle:focus-visible .ff-footer__chev {
+    color: #E68A00;
+  }
+
+  /* Collapsed state only kicks in once JS is ready, so the
+     links stay fully readable if JS never runs. */
+  .ff-footer.is-acc-ready .ff-footer__panel {
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.32s ease;
+  }
+
+  .ff-footer.is-acc-ready .ff-footer__col.is-open .ff-footer__panel {
+    grid-template-rows: 1fr;
+  }
+
+  .ff-footer.is-acc-ready .ff-footer__panel-inner {
+    min-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: visibility 0.32s linear;
+  }
+
+  .ff-footer.is-acc-ready .ff-footer__col.is-open .ff-footer__panel-inner {
+    visibility: visible;
+  }
+
+  /* Vertical breathing room inside an opened panel */
+  .ff-footer__panel-inner> :first-child {
+    margin-top: 0.7rem;
+  }
+
+  .ff-footer__panel-inner> :last-child {
+    margin-bottom: 1rem;
+  }
+
+  .ff-footer__links,
+  .ff-footer__produce-links,
+  .ff-footer__contact {
+    gap: 0.05rem;
+  }
+
+  .ff-footer__links a,
+  .ff-footer__produce-links a {
+    min-height: 34px;
+  }
+}
+
+@media (max-width: 540px) {
+  .ff-footer__inner {
+    grid-template-columns: 1fr;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .ff-footer__brand {
+    flex-direction: column;
+  }
+
+  .ff-footer__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .ff-footer__highlights {
+    /* grid-template-columns: repeat(5fr, 1fr); */
+    grid-template-rows: 1fr;
+  }
+
+      .ff-footer__highlight-item strong {
+        font-size: 0.4rem;
+      }
+
+}
+
+@media (max-width: 900px) {
+  :root {
+    --container-pad: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-pad: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ff-footer__logo-link,
+  .ff-footer__social a,
+  .ff-footer__links a,
+  .ff-footer__chat-card,
+  .ff-footer__produce-links a {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .ff-footer__panel,
+  .ff-footer__panel-inner,
+  .ff-footer__chev {
+    transition: none !important;
+  }
+}

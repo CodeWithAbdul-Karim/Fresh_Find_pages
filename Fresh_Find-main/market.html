@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshFind — Discover Karachi's Local Markets</title>
+  <meta name="description"
+    content="FreshFind helps you discover Karachi's local markets — what they sell, when they're open, and what's fresh right now.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/market.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+
+    <!-- ===== Ticker Strip ===== -->
+  <div class="ff-ticker" id="ffTicker">
+    <span class="sr-only">FreshFind helps you discover Karachi's local markets — what they sell, when they're open,
+      and what's fresh right now.</span>
+    <div class="ff-ticker__track" aria-hidden="true">
+      <span class="ff-ticker__item">Discover Karachi's local markets, all in one place</span>
+      <span class="ff-ticker__item">Know what's fresh, what's in season, and when to go</span>
+      <span class="ff-ticker__item">Real market hours. Real produce. Zero guesswork.</span>
+      <span class="ff-ticker__item">Built for Karachi shoppers who want it fresh, not stale</span>
+      <span class="ff-ticker__item">Discover Karachi's local markets, all in one place</span>
+      <span class="ff-ticker__item">Know what's fresh, what's in season, and when to go</span>
+      <span class="ff-ticker__item">Real market hours. Real produce. Zero guesswork.</span>
+      <span class="ff-ticker__item">Built for Karachi shoppers who want it fresh, not stale</span>
+    </div>
+  </div>
+
+  <!-- ===== Main Navbar ===== -->
+  <header class="ff-navbar" id="ffNavbar" data-ff-state="top">
+    <div class="ff-navbar__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="ff-navbar__logo" aria-label="FreshFind home">
+        <img src="images/navbar/logo.png" alt="FreshFind Logo">
+      </a>
+
+      <!-- Search Bar -->
+      <form class="ff-search" id="ffSearchForm" role="search">
+        <input
+          type="search"
+          class="ff-search__input"
+          id="ffSearchInput"
+          name="q"
+          placeholder="Search for products..."
+          aria-label="Search for products"
+          autocomplete="off">
+        <button type="submit" class="ff-search__btn" aria-label="Search">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.9"/>
+            <path d="M14 14l4.2 4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Right Actions: Bookmark + Sign In + Hamburger -->
+      <div class="ff-navbar__actions">
+        <!-- Bookmark Button with Badge -->
+        <a href="bookmarks.html" class="ff-navbar__bookmark" id="ffBookmarkBtn" aria-label="View saved items (0)">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="20" height="20">
+            <path d="M5 3.5C5 3.22386 5.22386 3 5.5 3H14.5C14.7761 3 15 3.22386 15 3.5V16.5L10 13.5L5 16.5V3.5Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+          </svg>
+          <span class="ff-navbar__bookmark-badge" id="ffBookmarkCount">0</span>
+        </a>
+
+        <a href="#auth" class="ff-navbar__auth">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+          Sign In
+        </a>
+
+        <!-- Hamburger (mobile only) -->
+        <button type="button" class="ff-navbar__hamburger" id="ffHamburgerBtn"
+          aria-label="Open menu" aria-expanded="false" aria-controls="ffMobileMenu">
+          <span class="ff-navbar__hamburger-line"></span>
+          <span class="ff-navbar__hamburger-line"></span>
+          <span class="ff-navbar__hamburger-line"></span>
+        </button>
+      </div>
+
+    </div><!-- /.ff-navbar__inner -->
+
+    <!-- ── Row 2: Categories · Primary Navigation ── -->
+    <div class="ff-navbar__sub">
+      <div class="ff-navbar__sub-inner">
+
+        <!-- Categories Button -->
+        <button
+          type="button"
+          class="ff-cat-btn"
+          id="ffCatBtn"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="ffCatPanel"
+          aria-label="Browse all categories">
+          <!-- Hamburger lines icon -->
+          <svg class="ff-cat-btn__icon" viewBox="0 0 20 16" fill="none" aria-hidden="true">
+            <rect y="0"  width="20" height="2.2" rx="1.1" fill="currentColor"/>
+            <rect y="7"  width="20" height="2.2" rx="1.1" fill="currentColor"/>
+            <rect y="13.8" width="20" height="2.2" rx="1.1" fill="currentColor"/>
+          </svg>
+          <span>Categories</span>
+          <svg class="ff-cat-btn__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav class="ff-navbar__nav" aria-label="Primary">
+          <ul class="ff-navbar__links">
+            <li><a href="market.html" class="ff-navbar__link" data-ff-nav-link data-page="home">Home</a></li>
+            <li><a href="market.html" class="ff-navbar__link" data-ff-nav-link data-page="markets">Markets</a></li>
+            <li><a href="produces.html" class="ff-navbar__link" data-ff-nav-link data-page="produces">Produces</a></li>
+            <li><a href="market.html" class="ff-navbar__link" data-ff-nav-link data-page="about">About Us</a></li>
+            <li><a href="market.html" class="ff-navbar__link" data-ff-nav-link data-page="contact">Contact Us</a></li>
+          </ul>
+        </nav>
+
+      </div><!-- /.ff-navbar__sub-inner -->
+    </div><!-- /.ff-navbar__sub -->
+
+    <!-- Mobile Menu -->
+    <nav class="ff-mobile-menu" id="ffMobileMenu" aria-label="Mobile navigation" hidden>
+      <ul class="ff-mobile-menu__links">
+        <li><a href="market.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="home">Home</a></li>
+        <li><a href="market.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="markets">Markets</a></li>
+        <li><a href="produces.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="produces">Produces</a></li>
+        <li><a href="market.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="about">About Us</a></li>
+        <li><a href="market.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="contact">Contact Us</a></li>
+      </ul>
+      <!-- Mobile categories trigger -->
+      <button type="button" class="ff-mobile-menu__cat-btn" id="ffMobileCatBtn"
+        aria-haspopup="true" aria-expanded="false">
+        <svg viewBox="0 0 20 16" fill="none" width="16" height="16" aria-hidden="true">
+          <rect y="0"    width="20" height="2.2" rx="1.1" fill="currentColor"/>
+          <rect y="7"    width="20" height="2.2" rx="1.1" fill="currentColor"/>
+          <rect y="13.8" width="20" height="2.2" rx="1.1" fill="currentColor"/>
+        </svg>
+        Browse Categories
+      </button>
+      <a href="#auth" class="ff-mobile-menu__auth">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- ===== Categories Panel (Sidebar Dropdown) ===== -->
+  <!-- Overlay -->
+  <div class="ff-cat-overlay" id="ffCatOverlay" aria-hidden="true"></div>
+
+  <!-- Panel -->
+  <aside
+    class="ff-cat-panel"
+    id="ffCatPanel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Browse categories"
+    hidden
+    aria-hidden="true">
+
+    <!-- Panel Header -->
+    <div class="ff-cat-panel__header">
+      <div class="ff-cat-panel__title">
+        <svg class="ff-cat-panel__leaf" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 2.5.933 4.78 2.464 6.517C6.077 20.395 8.91 21.5 12 21.5c5.523 0 10-4.477 10-10S17.523 2 12 2Z" fill="#fff" opacity=".18"/>
+          <path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="#fff"/>
+        </svg>
+        <span>Categories</span>
+      </div>
+      <button type="button" class="ff-cat-panel__close" id="ffCatClose" aria-label="Close categories panel">
+        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Search inside panel -->
+    <div class="ff-cat-panel__search-wrap">
+      <svg class="ff-cat-panel__search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M14 14l3.5 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+      <input
+        type="search"
+        class="ff-cat-panel__search"
+        id="ffCatSearch"
+        placeholder="Search categories..."
+        autocomplete="off"
+        aria-label="Search categories">
+    </div>
+
+    <!-- All Categories pill -->
+    <button type="button" class="ff-cat-panel__all" id="ffCatAll">
+      All Categories
+      <span class="ff-cat-panel__all-count">8</span>
+    </button>
+
+    <!-- Category list -->
+    <ul class="ff-cat-panel__list" id="ffCatList" role="list">
+
+      <li class="ff-cat-panel__item" data-cat-name="Fruits">
+        <a href="produces.html?category=Fruits" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Fruits</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Vegetables">
+        <a href="produces.html?category=Vegetables" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Vegetables</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Herbs">
+        <a href="produces.html?category=Herbs" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Herbs</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Leafy Greens">
+        <a href="produces.html?category=Leafy Greens" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Leafy Greens</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Roots & Tubers">
+        <a href="produces.html?category=Roots & Tubers" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Roots &amp; Tubers</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Dairy">
+        <a href="produces.html?category=Dairy" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Dairy</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Eggs">
+        <a href="produces.html?category=Eggs" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Eggs</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Organic / Farm Produce">
+        <a href="produces.html?category=Organic / Farm Produce" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Organic / Farm Produce</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+    </ul><!-- /.ff-cat-panel__list -->
+
+    <!-- Footer: total count -->
+    <div class="ff-cat-panel__footer-count">
+      <span>Total Categories</span>
+      <span class="ff-cat-panel__total-badge">8</span>
+    </div>
+
+    <!-- Email -->
+    <a class="ff-cat-panel__email" href="https://mail.google.com/mail/?view=cm&fs=1&to=findfreshmarket@gmail.com" target = "_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="15" height="15">
+        <rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M3.5 7.5 12 13l8.5-5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      findfreshmarket@gmail.com
+    </a>
+
+    <!-- Social links -->
+    <div class="ff-cat-panel__socials">
+      <a href="https://www.facebook.com/share/1DcEz7cwS1/" class="ff-cat-panel__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17 2h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/freshfind_official?stkn=MXF6bDB4Y293NjRmbg==" class="ff-cat-panel__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="https://youtube.com/@freshfindofficial?si=iFSGuIRCSj1rBDaO" class="ff-cat-panel__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.96-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58Z"/>
+          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/>
+        </svg>
+      </a>
+    </div><!-- /.ff-cat-panel__socials -->
+
+  </aside><!-- /.ff-cat-panel -->
+
+  <main>
+    <section class="hero" aria-labelledby="heroHeading">
+      <div class="hero__pattern" aria-hidden="true"></div>
+      <div class="hero__blob" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+
+        <!-- LEFT: main content -->
+        <div class="hero__content">
+
+          <h1 class="hero__heading" id="heroHeading">
+            <span class="hero__heading-green">Karachi's</span> <mark>markets</mark>
+          </h1>
+
+          <p class="hero__subtext">
+            Browse local markets across Karachi — hours, areas, and what's in season.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Highlights — "open right now" carousel + what's in season this month.
+         Styles live in css/market.css (HIGHLIGHTS block); js/market-highlights.js
+         fills the track from data/market.json (only markets currently open,
+         with their closing time) and the strip from data/produces.json. Sits
+         above the directory so you can jump to a market that's actually open
+         before browsing the full list. -->
+    <section id="highlights" class="highlights" aria-labelledby="highlightsHeading">
+      <div class="container">
+
+        <div class="highlights__header" data-reveal>
+          <div class="highlights__header-left">
+            <p class="highlights__eyebrow">
+              <span class="highlights__eyebrow-dot" aria-hidden="true"></span>
+              Right Now
+            </p>
+            <h2 class="highlights__heading" id="highlightsHeading">
+              Markets <mark>open right now</mark>
+            </h2>
+          </div>
+
+          <div class="highlights__header-right">
+            <button type="button" class="highlights__nav-btn" id="highlightsPrev" aria-label="Previous market">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button type="button" class="highlights__nav-btn" id="highlightsNext" aria-label="Next market">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="highlights__carousel-wrap">
+          <!-- Cards are cloned in by market-highlights.js; the list resets
+               (margin/padding/list-style) keep the track at exactly 100% width
+               so each slide's translateX(-100%) lands flush. -->
+          <ul class="highlights__track" id="highlightsTrack"></ul>
+          <div class="highlights__dots" id="highlightsDots" role="tablist" aria-label="Highlight slides"></div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section id="directory" class="directory" aria-labelledby="directoryHeading" tabindex="-1">
+      <div class="container">
+
+        <div class="directory__header" data-reveal>
+          <p class="directory__eyebrow">
+            Market Directory
+          </p>
+          <h2 id="directoryHeading"><span class="directory__heading-amber">Karachi's markets,</span><br><span class="directory__heading-dark">all in one place</span></h2>
+        </div>
+
+        <p class="directory__status" id="directoryStatus" role="status">Loading markets…</p>
+
+        <div class="directory__toolbar" id="directoryToolbar" hidden data-reveal>
+
+          <div class="toolbar__top">
+            <div class="toolbar__search">
+              <label for="directorySearch" class="sr-only">Search markets by name, area, address or produce</label>
+              <svg class="toolbar__search-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="6.5" cy="6.5" r="4" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <input type="search" id="directorySearch" placeholder="Search by market, area or produce…" autocomplete="off">
+            </div>
+
+            <button type="button" class="toolbar__reset" id="resetFilters">
+              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7a5 5 0 1 0 1.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M2 3.5V7h3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Reset
+            </button>
+          </div>
+
+          <div class="toolbar__filters">
+            <div class="toolbar__field">
+              <span class="toolbar__field-label">Area</span>
+              <label for="filterArea" class="sr-only">Filter by area</label>
+              <select id="filterArea" class="ff-select-native">
+              <option value="all">All areas</option>
+              <option value="DHA">DHA</option>
+              <option value="Clifton">Clifton</option>
+              <option value="Saddar">Saddar</option>
+              <option value="Gulshan-e-Iqbal">Gulshan-e-Iqbal</option>
+              <option value="North Nazimabad">North Nazimabad</option>
+              <option value="Nazimabad">Nazimabad</option>
+              <option value="Malir">Malir</option>
+              <option value="Korangi">Korangi</option>
+            </select>
+            <div class="ff-dropdown" data-for="filterArea">
+              <button type="button" class="ff-dropdown__trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="ff-dropdown__label">All areas</span>
+                <svg class="ff-dropdown__chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="ff-dropdown__panel" role="listbox" aria-label="Filter by area">
+                <li class="ff-dropdown__option ff-dropdown__option--selected" role="option" aria-selected="true" data-value="all">All areas</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="DHA">DHA</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Clifton">Clifton</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Saddar">Saddar</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Gulshan-e-Iqbal">Gulshan-e-Iqbal</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="North Nazimabad">North Nazimabad</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Nazimabad">Nazimabad</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Malir">Malir</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Korangi">Korangi</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="toolbar__field">
+            <span class="toolbar__field-label">Open Day</span>
+            <label for="filterDay" class="sr-only">Filter by open day</label>
+            <select id="filterDay" class="ff-select-native">
+              <option value="all">Any day</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+              <option value="sunday">Sunday</option>
+            </select>
+            <div class="ff-dropdown" data-for="filterDay">
+              <button type="button" class="ff-dropdown__trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="ff-dropdown__label">Any day</span>
+                <svg class="ff-dropdown__chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="ff-dropdown__panel" role="listbox" aria-label="Filter by day">
+                <li class="ff-dropdown__option ff-dropdown__option--selected" role="option" aria-selected="true" data-value="all">Any day</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="monday">Monday</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="tuesday">Tuesday</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="wednesday">Wednesday</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="thursday">Thursday</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="friday">Friday</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="saturday">Saturday</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="sunday">Sunday</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="toolbar__field">
+            <span class="toolbar__field-label">Produce</span>
+            <label for="filterProduce" class="sr-only">Filter by produce type</label>
+            <select id="filterProduce" class="ff-select-native">
+              <option value="all">All produce</option>
+              <option value="Fruits">Fruits</option>
+              <option value="Vegetables">Vegetables</option>
+              <option value="Herbs">Herbs</option>
+              <option value="Leafy Greens">Leafy Greens</option>
+              <option value="Roots &amp; Tubers">Roots &amp; Tubers</option>
+              <option value="Dairy">Dairy</option>
+              <option value="Eggs">Eggs</option>
+              <option value="Organic / Farm Produce">Organic / Farm Produce</option>
+            </select>
+            <div class="ff-dropdown" data-for="filterProduce">
+              <button type="button" class="ff-dropdown__trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="ff-dropdown__label">All produce</span>
+                <svg class="ff-dropdown__chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="ff-dropdown__panel" role="listbox" aria-label="Filter by produce">
+                <li class="ff-dropdown__option ff-dropdown__option--selected" role="option" aria-selected="true" data-value="all">All produce</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Fruits">Fruits</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Vegetables">Vegetables</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Herbs">Herbs</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Leafy Greens">Leafy Greens</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Roots &amp; Tubers">Roots &amp; Tubers</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Dairy">Dairy</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Eggs">Eggs</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="Organic / Farm Produce">Organic / Farm Produce</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="toolbar__divider" aria-hidden="true"></div>
+
+          <div class="toolbar__field toolbar__field--sort">
+            <span class="toolbar__field-label">Sort by</span>
+            <label for="sortBy" class="sr-only">Sort markets</label>
+            <select id="sortBy" class="ff-select-native">
+              <option value="az">Sort: A–Z</option>
+              <option value="za">Sort: Z–A</option>
+              <option value="status">Sort: Open first</option>
+              <option value="proximity">Sort: Nearest</option>
+            </select>
+            <div class="ff-dropdown" data-for="sortBy">
+              <button type="button" class="ff-dropdown__trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="ff-dropdown__label">Sort: A–Z</span>
+                <svg class="ff-dropdown__chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="ff-dropdown__panel" role="listbox" aria-label="Sort markets">
+                <li class="ff-dropdown__option ff-dropdown__option--selected" role="option" aria-selected="true" data-value="az">Sort: A–Z</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="za">Sort: Z–A</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="status">Sort: Open first</li>
+                <li class="ff-dropdown__option" role="option" aria-selected="false" data-value="proximity">Sort: Nearest</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+        <p class="directory__count" id="resultCount" role="status" hidden data-reveal></p>
+
+        <div class="market-grid" id="marketGrid"></div>
+
+        <!-- Show more / show less button — hidden until more than 6 results -->
+
+        <p class="directory__empty" id="noResults" hidden>
+          No markets match your search or filters right now. Try a different area, day or produce type — or clear your
+          filters.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <template id="marketCardTemplate">
+    <article class="market-card">
+
+      <div class="market-card__media">
+        <img class="market-card__image" src="" alt="" loading="lazy">
+        <span class="market-card__status" data-status="unknown">Checking…</span>
+        <button type="button" class="market-card__bookmark" aria-pressed="false" aria-label="Bookmark this market">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 3.5C5 3.22386 5.22386 3 5.5 3H14.5C14.7761 3 15 3.22386 15 3.5V16.5L10 13.5L5 16.5V3.5Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="market-card__body">
+
+        <div class="market-card__heading">
+          <h3 class="market-card__name"></h3>
+          <span class="market-card__area">
+            <svg viewBox="0 0 12 14" fill="none" aria-hidden="true">
+              <path d="M6 1C3.79 1 2 2.79 2 5c0 3 4 8 4 8s4-5 4-8c0-2.21-1.79-4-4-4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+              <circle cx="6" cy="5" r="1.2" stroke="currentColor" stroke-width="1.1"/>
+            </svg>
+            <span class="market-card__area-text"></span>
+          </span>
+        </div>
+        <span class="market-card__distance" hidden aria-label="Distance from your location"></span>
+
+        <p class="market-card__description"></p>
+
+        <dl class="market-card__meta">
+          <div class="market-card__meta-row">
+            <dt>
+              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="2.5" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M1 5.5h12" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M4.5 1v3M9.5 1v3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              Days
+            </dt>
+            <dd class="market-card__days"></dd>
+          </div>
+          <div class="market-card__meta-row">
+            <dt>
+              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M7 4v3.2l2 1.3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Hours
+            </dt>
+            <dd class="market-card__hours"></dd>
+          </div>
+        </dl>
+
+        <div class="market-card__actions">
+          <a href="marketdetails.html" class="market-card__details">View details</a>
+        </div>
+
+      </div>
+    </article>
+  </template>   
+
+  <!-- =====================================================
+       FRESHBOT — Floating Chatbot Widget
+       ===================================================== -->
+
+  <!-- Launcher button -->
+  <button type="button" class="ff-chat-launcher" id="ffChatLauncher"
+    aria-label="Open FreshBot chat" aria-expanded="false" aria-controls="ffChatWindow">
+    <!-- Bot icon (shown when closed) -->
+    <svg class="ff-chat-launcher__icon-open" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="13" rx="3" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M8 10h8M8 13.5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <path d="M9 5V3.5M15 5V3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="9" cy="19" r="1.2" fill="currentColor"/>
+      <circle cx="15" cy="19" r="1.2" fill="currentColor"/>
+      <path d="M9 18V18.2M15 18V18.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <!-- X icon (shown when open) -->
+    <svg class="ff-chat-launcher__icon-close" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <!-- Unread badge -->
+    <span class="ff-chat-launcher__badge" id="ffChatBadge" hidden aria-hidden="true">1</span>
+  </button>
+
+  <!-- Chat window -->
+  <div class="ff-chat-window" id="ffChatWindow" role="dialog"
+    aria-label="FreshBot chat" aria-modal="false" hidden>
+
+    <!-- Header -->
+    <div class="ff-chat-header">
+      <div class="ff-chat-header__avatar" aria-hidden="true">🌿</div>
+      <div class="ff-chat-header__info">
+        <p class="ff-chat-header__name">FreshBot</p>
+        <span class="ff-chat-header__status">
+          <span class="ff-chat-header__status-dot" aria-hidden="true"></span>
+          Your local market guide
+        </span>
+      </div>
+      <button type="button" class="ff-chat-header__close" id="ffChatClose" aria-label="Close chat">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div class="ff-chat-messages" id="ffChatMessages" role="log" aria-live="polite" aria-label="Chat messages"></div>
+
+    <!-- Quick replies -->
+    <div class="ff-suggestions-wrap" id="ffSuggestionsWrap" hidden>
+      <div class="ff-suggestions-header">
+        <span class="ff-suggestions-label">Suggested questions</span>
+        <button type="button" class="ff-suggestions-toggle" id="ffSuggestionsToggle"
+          aria-expanded="true" aria-label="Hide suggested questions">
+          <svg class="ff-suggestions-arrow" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ff-quick-replies" id="ffQuickReplies" aria-label="Suggested questions"></div>
+    </div>
+
+    <!-- Input row -->
+    <div class="ff-chat-input-row">
+      <label for="ffChatInput" class="sr-only">Type your message</label>
+      <input type="text" class="ff-chat-input" id="ffChatInput"
+        placeholder="Ask about markets, hours, produce…"
+        autocomplete="off" maxlength="200">
+      <button type="button" class="ff-chat-send" id="ffChatSend" aria-label="Send message" disabled>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/visitor.js"></script>
+  <script src="js/market.js"></script>
+  <script src="js/market-highlights.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/footer.js"></script>
+
+  <!-- Bookmark toast -->
+  <div class="ff-bm-toast" id="ffBookmarkToast" role="status" aria-live="polite" aria-atomic="true">
+    <span class="ff-bm-toast__icon"></span>
+    <span class="ff-bm-toast__msg"></span>
+  </div>
+
+</body>
+
+</html>

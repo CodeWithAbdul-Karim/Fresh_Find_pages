@@ -1,0 +1,2592 @@
+/* =========================================================
+   FreshFind — Produce Guide Page
+   Produce Guide Part 3: produces.css
+
+   Page-specific layout ONLY. No new colors, fonts, container
+   width/gutter, resets, .sr-only or focus-visible rules are
+   defined here — all of that is inherited from market.css's
+   :root tokens, which this file references directly
+   (var(--primary), var(--ink), var(--font-display), etc.),
+   the same reuse pattern marketdetails.css already established.
+   Breakpoints (1024px / 720px / 480px) match market.css's and
+   marketdetails.css's existing responsive convention exactly.
+
+   Sections in this file:
+     1. Hero (produce variant)
+     2. Catalogue header + status
+     3. Toolbar (search + category filter + reset)
+     4. Result count
+     5. Produce grid + cards
+     6. Catalogue empty state
+     7. Produce Detail section
+     8. Available Markets
+     9. What's in Season
+    10. Responsive rules
+   ========================================================= */
+
+/* ---------- 1. Hero (produce variant) — full reimagination ---------- */
+
+/*
+   Produce hero is a full-bleed split layout matching market.html's
+   hero proportions (100vh, same padding calc, same .hero base rule)
+   but with its own visual identity:
+     - Rich layered background: amber + green radial glows over deep
+       dark-green base, same depth as market hero
+     - Two animated organic blobs (amber + green) replacing market's
+       single amber blob
+     - Eight floating produce emoji orbs drift across the background
+     - Right panel: "Fresh Today" glass card — season month, item
+       count, category badges injected by produces.js
+     - Dual CTAs: primary (outlined white) + secondary (ghost)
+*/
+
+/* ---- Background & base overrides ---- */
+
+/* Produce hero: replace market-04.png with produces/hero.png */
+.hero--produces {
+  background-image:
+    linear-gradient(to right, rgba(8, 20, 13, 0.72) 0%, rgba(8, 20, 13, 0.40) 60%, rgba(8, 20, 13, 0.25) 100%),
+    url("../images/produces/hero.png");
+  background-size: cover;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+/*
+   Rich illustrated background: same SVG-inline technique as market.html
+   but produce-themed — scattered loose vegetables and fruits on a wooden
+   surface, with the same crate-grid layering style. Deep dark-green base
+   with amber and green radial glows for depth.
+*/
+.hero--produce {
+  background-color: #0D1F14;
+  background-image:
+    radial-gradient(ellipse 58% 52% at 12% 14%, rgba(242, 183, 63, 0.18) 0%, transparent 66%),
+    radial-gradient(ellipse 52% 58% at 84% 28%, rgba(78, 145, 85, 0.22) 0%, transparent 62%),
+    radial-gradient(ellipse 38% 42% at 52% 82%, rgba(8, 40, 22, 0.60) 0%, transparent 72%),
+    linear-gradient(172deg, rgba(10, 28, 16, 0.72) 0%, rgba(8, 22, 13, 0.58) 100%),
+    url("../images/produces/hero.png"),
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'><defs><linearGradient id='base' x1='0' y1='0' x2='0' y2='1'><stop offset='0%25' stop-color='%2320442F'/><stop offset='50%25' stop-color='%23183525'/><stop offset='100%25' stop-color='%230E221A'/></linearGradient><radialGradient id='ga' cx='50%25' cy='50%25' r='50%25'><stop offset='0%25' stop-color='%23F2C763' stop-opacity='0.22'/><stop offset='100%25' stop-color='%23F2C763' stop-opacity='0'/></radialGradient><radialGradient id='gb' cx='50%25' cy='50%25' r='50%25'><stop offset='0%25' stop-color='%238CBF8E' stop-opacity='0.26'/><stop offset='100%25' stop-color='%238CBF8E' stop-opacity='0'/></radialGradient><radialGradient id='gnd' cx='50%25' cy='50%25' r='50%25'><stop offset='0%25' stop-color='%23000' stop-opacity='0.38'/><stop offset='100%25' stop-color='%23000' stop-opacity='0'/></radialGradient></defs><rect width='1600' height='900' fill='url(%23base)'/><circle cx='280' cy='130' r='380' fill='url(%23ga)'/><circle cx='1360' cy='200' r='440' fill='url(%23gb)'/><ellipse cx='800' cy='880' rx='820' ry='100' fill='url(%23gnd)'/><g transform='translate(30,760)'><ellipse cx='55' cy='55' rx='55' ry='46' fill='%23F2B33C'/><ellipse cx='118' cy='38' rx='50' ry='42' fill='%23F7C550'/><ellipse cx='172' cy='58' rx='44' ry='36' fill='%23E8A52A'/><path d='M55 6 q10-16 26-10' stroke='%235A9061' stroke-width='6' fill='none' stroke-linecap='round'/><path d='M118 -6 q12-18 28-12' stroke='%235A9061' stroke-width='6' fill='none' stroke-linecap='round'/></g><g transform='translate(280,790)'><circle cx='0' cy='36' r='50' fill='%23E04530'/><circle cx='66' cy='54' r='42' fill='%23F0553F'/><circle cx='122' cy='38' r='46' fill='%23E03A28'/><path d='M-2-18 q10-16 24-10' stroke='%235A9061' stroke-width='5' fill='none' stroke-linecap='round'/><path d='M122-10 q10-16 24-10' stroke='%235A9061' stroke-width='5' fill='none' stroke-linecap='round'/></g><g transform='translate(500,770)' fill='%234E9155'><path d='M0 80 q28-86 68-18 q10 38-28 42 q-40 4-40-24Z'/><path d='M58 86 q28-76 64-16 q8 34-26 38 q-36 4-38-22Z' fill='%235AA362'/><path d='M-28 90 q22-62 52-12 q6 28-20 32 q-30 2-32-20Z'/><path d='M116 82 q24-68 56-14 q6 30-22 34 q-32 2-34-20Z' fill='%23488A4C'/></g><g transform='translate(730,800)'><ellipse cx='0' cy='44' rx='38' ry='52' fill='%238A5FA0'/><ellipse cx='68' cy='60' rx='42' ry='56' fill='%239B6EB2'/><ellipse cx='130' cy='46' rx='36' ry='50' fill='%237A4F90'/><path d='M-4-8 q8-16 22-10' stroke='%235A9061' stroke-width='5' fill='none' stroke-linecap='round'/><path d='M68 4 q8-16 22-10' stroke='%235A9061' stroke-width='5' fill='none' stroke-linecap='round'/></g><g transform='translate(960,775)'><circle cx='24' cy='24' r='22' fill='%2356944A'/><circle cx='56' cy='12' r='22' fill='%2356944A'/><circle cx='78' cy='36' r='22' fill='%2356944A'/><circle cx='48' cy='54' r='22' fill='%2356944A'/><circle cx='18' cy='48' r='20' fill='%2356944A'/><ellipse cx='48' cy='72' rx='34' ry='12' fill='%23356A2C' opacity='0.6'/></g><g transform='translate(1140,785)'><rect x='0' y='0' width='68' height='90' rx='34' fill='%23D94F3A' transform='rotate(-12,34,45)'/><rect x='70' y='0' width='64' height='86' rx='32' fill='%23E85D47' transform='rotate(8,32,43)'/><rect x='138' y='4' width='60' height='82' rx='30' fill='%23D04030' transform='rotate(-6,30,41)'/></g><g transform='translate(1360,800)' fill='%237A4FA0'><circle cx='0' cy='0' r='18'/><circle cx='22' cy='12' r='18'/><circle cx='44' cy='0' r='18'/><circle cx='11' cy='30' r='18'/><circle cx='33' cy='30' r='18'/><circle cx='22' cy='56' r='16'/><path d='M22-20 q8-14 20-10' stroke='%235A9061' stroke-width='5' fill='none' stroke-linecap='round'/></g><g transform='translate(1530,790)'><circle cx='0' cy='42' r='48' fill='%23E7B23A'/><circle cx='66' cy='58' r='38' fill='%23D9E05A'/><path d='M0-8 q8-14 20-8' stroke='%235A9061' stroke-width='5' fill='none' stroke-linecap='round'/></g></svg>");
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: auto, auto, auto, auto, cover, cover;
+  background-position: center bottom;
+}
+
+/* ---- Animated blobs (two, vs market's one) ---- */
+
+.hero--produce__blob {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
+}
+
+.hero--produce__blob--1 {
+  /* Amber blob — top-right, echoes market hero blob position */
+  top: 50%;
+  right: -6%;
+  transform: translateY(-50%);
+  width: clamp(280px, 32vw, 500px);
+  height: clamp(280px, 32vw, 500px);
+  background: radial-gradient(ellipse at 40% 40%,
+      rgba(242, 183, 63, 0.18) 0%,
+      rgba(78, 145, 85, 0.08) 55%,
+      transparent 75%);
+  animation: produceBlob1 9s ease-in-out infinite alternate;
+}
+
+.hero--produce__blob--2 {
+  /* Green blob — bottom-left, new vs market hero */
+  bottom: -4%;
+  left: -4%;
+  width: clamp(200px, 24vw, 380px);
+  height: clamp(200px, 24vw, 380px);
+  background: radial-gradient(ellipse at 55% 55%,
+      rgba(78, 145, 85, 0.22) 0%,
+      rgba(47, 107, 79, 0.08) 60%,
+      transparent 80%);
+  animation: produceBlob2 11s ease-in-out infinite alternate;
+}
+
+@keyframes produceBlob1 {
+  from {
+    border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
+    transform: translateY(-50%) scale(1);
+  }
+
+  to {
+    border-radius: 44% 56% 40% 60% / 60% 40% 58% 42%;
+    transform: translateY(-52%) scale(1.05);
+  }
+}
+
+@keyframes produceBlob2 {
+  from {
+    border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%;
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    border-radius: 42% 58% 45% 55% / 55% 45% 62% 38%;
+    transform: scale(1.07) rotate(6deg);
+  }
+}
+
+/* ---- Inner grid: produce split layout ---- */
+
+/* Overrides .hero__inner which uses `grid-template-columns: 1fr auto`.
+   Produce hero uses the same pattern but panel is slightly wider
+   for the richer card content. */
+.hero__inner--produce {
+  grid-template-columns: 1fr clamp(260px, 26vw, 320px);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  z-index: 1;
+  position: relative;
+}
+
+/* ---- Dual CTAs ---- */
+
+.produce-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+/* Primary CTA — solid white fill, dark text (inverted vs market's ghost) */
+.produce-hero__cta--primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, gap 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+}
+
+.produce-hero__cta--primary:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  gap: 0.8rem;
+}
+
+.produce-hero__cta--primary svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.produce-hero__cta--primary:hover svg {
+  transform: translateY(3px);
+}
+
+/* Secondary CTA — ghost (outline only, white text) */
+.produce-hero__cta--secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.72rem 1.35rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    transform 0.2s ease, gap 0.2s ease;
+}
+
+.produce-hero__cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  gap: 0.8rem;
+}
+
+.produce-hero__cta--secondary svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.produce-hero__cta--secondary:hover svg {
+  transform: translateY(-2px);
+}
+
+/* ---- Fresh Today glass panel ---- */
+
+.produce-hero__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 24px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  overflow: hidden;
+  /* Entrance animation — slides in from right */
+  animation: panelSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+@keyframes panelSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Panel header row */
+.produce-hero__panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 1.1rem 1.35rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* Animated green pulse dot */
+.produce-hero__panel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6FC378;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(111, 195, 120, 0.28);
+  animation: dotPulse 2.2s ease-in-out infinite;
+}
+
+.produce-hero__panel-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  flex: 1;
+}
+
+.produce-hero__panel-month {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #F2B33C;
+  white-space: nowrap;
+}
+
+/* Big seasonal count */
+.produce-hero__stat-main {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding: 1.25rem 1.35rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.produce-hero__stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 2rem + 1.5vw, 3.4rem);
+  font-weight: 600;
+  color: #F2B33C;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  /* Count-up feel via a subtle scale-in on load */
+  animation: numPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
+}
+
+@keyframes numPop {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.produce-hero__stat-desc {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.48);
+  line-height: 1.45;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Category badges */
+.produce-hero__cats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.42rem;
+  padding: 1rem 1.35rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Each badge injected by produces.js */
+.produce-hero__cat-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  font-size: 0.67rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  animation: badgeFadeIn 0.3s ease both;
+  animation-delay: var(--badge-delay, 0s);
+}
+
+/* If odd number of badges, last one spans both columns */
+.produce-hero__cat-badge:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.produce-hero__cat-badge:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+
+/* Badge text — truncate long category names gracefully */
+.produce-hero__cat-badge-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.produce-hero__cat-badge-count {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: #F2B33C;
+  font-size: 0.72rem;
+  margin-left: auto;
+  padding-left: 0.25rem;
+}
+
+@keyframes badgeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Total stats row */
+.produce-hero__totals {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.35rem 1.25rem;
+}
+
+.produce-hero__total-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  flex: 1;
+  text-align: center;
+}
+
+.produce-hero__total-num {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.produce-hero__total-lbl {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.40);
+  line-height: 1.3;
+}
+
+.produce-hero__total-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  margin: 0 0.1rem;
+}
+
+/* Focus rings on dark hero */
+.hero--produce a:focus-visible,
+.hero--produce button:focus-visible {
+  outline-color: #FFFFFF;
+}
+
+/* ---- Responsive ---- */
+
+/* Tablet + mobile: hero becomes auto-height, content-first */
+@media (max-width: 900px) {
+  .hero--produce {
+    height: auto;
+    min-height: 100svh;
+    padding-top: calc(var(--ff-height-top, 76px) + var(--ff-ticker-height, 34px) + 2rem);
+    padding-bottom: 3rem;
+  }
+
+  .hero__inner--produce {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-items: start;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .produce-hero__panel {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Tablet only (600–900): panel in 2-col layout to save vertical space */
+@media (min-width: 601px) and (max-width: 900px) {
+  .produce-hero__panel {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    border-radius: 16px;
+  }
+
+  /* Header spans full width */
+  .produce-hero__panel-header {
+    grid-column: 1 / -1;
+  }
+
+  /* Stat + cats side by side */
+  .produce-hero__stat-main {
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 1.25rem;
+    align-items: flex-start;
+  }
+
+  .produce-hero__cats {
+    border-bottom: none;
+    align-content: start;
+    padding: 0.85rem 1.1rem;
+  }
+
+  /* Totals spans full width */
+  .produce-hero__totals {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero--produce {
+    min-height: 0;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero__inner--produce {
+    gap: 1.25rem;
+  }
+
+  /* Heading size smaller on mobile */
+  .hero__heading {
+    font-size: clamp(1.6rem, 1.2rem + 3.5vw, 2.2rem);
+  }
+
+  /* CTAs full width stacked */
+  .produce-hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 1.25rem;
+  }
+
+  .produce-hero__cta--primary,
+  .produce-hero__cta--secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Panel: tighter on mobile */
+  .produce-hero__panel {
+    border-radius: 16px;
+  }
+
+  .produce-hero__stat-number {
+    font-size: 2.2rem;
+  }
+
+  /* Badges 2-col */
+  .produce-hero__cats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .produce-hero__cat-badge:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  /* Totals tighter */
+  .produce-hero__totals {
+    padding: 0.75rem 1.1rem 1rem;
+  }
+
+  .produce-hero__total-num {
+    font-size: 1.2rem;
+  }
+
+  .produce-combobox {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero--produce__blob,
+  .produce-hero__panel,
+  .produce-hero__stat-number,
+  .produce-hero__cat-badge {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------- 2. Catalogue header + status ---------- */
+
+.produce-catalogue {
+  padding: 3rem 0 7rem;
+  /* Fallback for older browsers */
+  padding: clamp(3rem, 6vw, 4.5rem) 0 7rem;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+
+/* Subtle background texture — matches .directory::before */
+.produce-catalogue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(47, 107, 79, 0.04) 0%, transparent 55%),
+    radial-gradient(circle at 10% 80%, rgba(242, 179, 60, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.produce-catalogue>.container {
+  position: relative;
+}
+
+.produce-catalogue:focus {
+  outline: none;
+}
+
+/* Eyebrow — identical to .directory__eyebrow */
+.produce-catalogue__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.produce-catalogue__eyebrow svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.produce-catalogue__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 0 0 2.75rem;
+  position: relative;
+  z-index: 200;
+}
+
+.produce-catalogue__header-left {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.produce-catalogue__header-right {
+  flex-shrink: 0;
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.25rem;
+  position: relative;
+  z-index: 9999;
+}
+
+.produce-catalogue__header-right[hidden] {
+  display: none !important;
+}
+
+/* Two-tone heading — matches .directory__header h2 style */
+.produce-catalogue__header h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.5rem, 1.6rem + 1.6vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 0.9rem;
+  letter-spacing: -0.02em;
+}
+
+.produce-catalogue__heading-green {
+  color: lab(72.7183 31.8672 97.9407);
+}
+
+.produce-catalogue__heading-dark {
+  color: var(--ink);
+}
+
+.produce-catalogue__subtext {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 54ch;
+}
+
+.produce-catalogue__status {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.produce-catalogue__status[hidden] {
+  display: none;
+}
+
+/* ---------- 3. Toolbar (search + category filter + reset) ---------- */
+
+/*
+   Reuses market.css's .toolbar__top, .toolbar__search, .toolbar__reset
+   shared classes. Only the wrapper and pill strip need styles here.
+*/
+/* ---- Combobox: search input + chevron + dropdown ---- */
+
+.produce-combobox {
+  position: relative;
+  flex: 0 0 320px;
+  min-width: 0;
+}
+
+.produce-combobox__search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  color: var(--ink-soft);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.produce-combobox__input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem 2.4rem 0.65rem 2.4rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.produce-combobox__input::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.6;
+}
+
+.produce-combobox__input:hover {
+  border-color: var(--primary-light);
+}
+
+.produce-combobox.is-open .produce-combobox__input {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(47, 107, 79, 0.1);
+  outline: none;
+}
+
+.produce-combobox__chevron {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-left: 1.5px solid var(--border);
+  border-radius: 0 10px 10px 0;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.produce-combobox__chevron:hover {
+  background: rgba(47, 107, 79, 0.06);
+  color: var(--primary-dark);
+}
+
+.produce-combobox__chevron svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.22s ease;
+}
+
+.produce-combobox.is-open .produce-combobox__chevron svg {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.produce-combobox__dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(31, 70, 53, 0.12), 0 2px 8px rgba(31, 70, 53, 0.07);
+  z-index: 999;
+  display: none;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top left;
+  transition: opacity 0.18s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.produce-combobox.is-open .produce-combobox__dropdown {
+  display: block;
+}
+
+.produce-combobox__dropdown.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.produce-combobox__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.14s ease, color 0.14s ease;
+  white-space: nowrap;
+}
+
+.produce-combobox__option:hover {
+  background: rgba(47, 107, 79, 0.07);
+  color: var(--primary-dark);
+}
+
+.produce-combobox__option--selected {
+  background: rgba(47, 107, 79, 0.1);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.produce-combobox__option--selected::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2.5 7l3 3 6-6' stroke='%232F6B4F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* ---------- 4. Result count ---------- */
+
+/* Pill left-aligned, same as before */
+.produce-catalogue__count {
+  display: block;
+  text-align: left;
+  margin: 0 0 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  letter-spacing: 0.01em;
+}
+
+/* The actual visible pill is rendered via a nested span in JS */
+.produce-catalogue__count-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.85rem 0.3rem 0.6rem;
+  background: rgba(47, 107, 79, 0.07);
+  border: 1px solid rgba(47, 107, 79, 0.15);
+  border-radius: 999px;
+}
+
+.produce-catalogue__count-inner::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.produce-catalogue__count[hidden] {
+  display: none;
+}
+
+/* ---------- 5. Produce grid + cards ---------- */
+
+/* Same 4-column grid as market.html */
+.produce-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1100px) {
+  .produce-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .produce-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .produce-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Card shell — identical to .market-card ---- */
+
+.produce-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(31, 70, 53, 0.04),
+    0 4px 12px rgba(31, 70, 53, 0.06);
+  transition:
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: none;
+  will-change: transform;
+  position: relative;
+  z-index: 0;
+}
+
+.produce-card:hover {
+  box-shadow:
+    0 2px 4px rgba(31, 70, 53, 0.04),
+    0 12px 28px rgba(31, 70, 53, 0.13),
+    0 24px 48px rgba(31, 70, 53, 0.07);
+}
+
+/* ---- Media — identical to .market-card__media ---- */
+
+.produce-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.produce-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(10, 28, 18, 0.38) 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.produce-card:hover .produce-card__media::after {
+  opacity: 1;
+}
+
+.produce-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.produce-card:hover .produce-card__image {
+  transform: scale(1.06);
+}
+
+/* Category badge — bottom-left of image, like market status badge */
+.produce-card__category-badge {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.26rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--primary-dark);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 3.5rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+
+.produce-card:hover .produce-card__category-badge {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+/* Bookmark button — top-right of image, identical to .market-card__bookmark */
+.produce-card__bookmark {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--primary-dark);
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.produce-card__bookmark:hover {
+  background: #f0f0f0;
+}
+
+.produce-card__bookmark:active {
+  background: #e8e8e8;
+}
+
+.produce-card__bookmark[aria-pressed="true"] {
+  background: var(--primary);
+  color: #fff;
+}
+
+.produce-card__bookmark[aria-pressed="true"]:hover {
+  background: var(--primary-dark);
+}
+
+.produce-card__bookmark svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+/* ---- Body — identical to .market-card__body ---- */
+
+.produce-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0.85rem 1rem 1rem;
+  gap: 0.5rem;
+}
+
+.produce-card__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.produce-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--ink);
+  min-width: 0;
+  transition: color 0.25s ease;
+}
+
+.produce-card:hover .produce-card__name {
+  color: var(--primary-dark);
+}
+
+/* Description — 1-line clamp, same as market card */
+.produce-card__description {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.25s ease;
+}
+
+.produce-card:hover .produce-card__description {
+  color: var(--ink);
+}
+
+/* Meta tiles — same 2-column grid as market-card__meta */
+.produce-card__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.produce-card__meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  padding: 0.28rem 0.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.produce-card__meta-row dt {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.6;
+  margin: 0;
+}
+
+.produce-card__meta-row dt svg {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  color: var(--primary-light);
+  opacity: 1;
+}
+
+.produce-card__meta-row dd {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* CTA — same as .market-card__details */
+.produce-card__actions {
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.produce-card__details {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background: var(--primary);
+  border: 1.5px solid var(--primary);
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.83rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.28s ease;
+}
+
+.produce-card__details:hover,
+.produce-card__details:focus-visible {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 6px 20px rgba(31, 70, 53, 0.3);
+  transform: translateY(-2px);
+  letter-spacing: 0.01em;
+}
+
+.produce-card__details:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(31, 70, 53, 0.2);
+  transition-duration: 0.1s;
+}
+
+/* ---------- 5b. Market price tag (replaces the old View Details CTA) ----
+   The tag IS the card's action: label + live price on the left, chevron
+   on the right, and it links to producesdetails.html?id=…. The whole
+   catalogue card is clickable too (scoped to #produceGrid so the
+   bookmarks page's static cards keep their default cursor). */
+
+#produceGrid .produce-card {
+  cursor: pointer;
+}
+
+.produce-card__price {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  background: linear-gradient(135deg, rgba(47, 107, 79, 0.08) 0%, rgba(111, 159, 114, 0.16) 100%);
+  border: 1.5px solid rgba(47, 107, 79, 0.26);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--primary-dark);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.produce-card__price-label {
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.75;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.produce-card__price-value {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.produce-card__price-unit {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  opacity: 0.7;
+  margin-left: 0.1rem;
+}
+
+.produce-card__price-na {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.produce-card__price-go {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(47, 107, 79, 0.12);
+  color: var(--primary-dark);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.produce-card__price-go svg {
+  width: 11px;
+  height: 11px;
+}
+
+.produce-card__price:hover,
+.produce-card__price:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(31, 70, 53, 0.28);
+  transform: translateY(-2px);
+}
+
+.produce-card__price:hover .produce-card__price-label,
+.produce-card__price:focus-visible .produce-card__price-label {
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 1;
+}
+
+.produce-card__price:hover .produce-card__price-go,
+.produce-card__price:focus-visible .produce-card__price-go {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.produce-card__price:active {
+  transform: translateY(0);
+  transition-duration: 0.1s;
+}
+
+/* ---------- 5c. Pagination ----------
+   Replaces the old "Show 6 more produces" control. Numbered pages with a
+   windowed range (1 … 4 5 6 … 8) plus Prev/Next — identical at every
+   breakpoint; only the tap targets tighten up on small phones. */
+
+.produce-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+.produce-pagination[hidden] {
+  display: none;
+}
+
+.produce-pagination__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.produce-pagination__nav svg {
+  width: 12px;
+  height: 12px;
+}
+
+.produce-pagination__nav:hover:not(:disabled),
+.produce-pagination__nav:focus-visible:not(:disabled) {
+  border-color: var(--primary);
+  background: rgba(47, 107, 79, 0.06);
+  color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.produce-pagination__nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.produce-pagination__pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.produce-pagination__page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 0.35rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.produce-pagination__page:hover,
+.produce-pagination__page:focus-visible {
+  border-color: var(--primary-light);
+  background: rgba(47, 107, 79, 0.06);
+  transform: translateY(-1px);
+}
+
+.produce-pagination__page--active,
+.produce-pagination__page--active:hover,
+.produce-pagination__page--active:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(31, 70, 53, 0.25);
+  transform: none;
+}
+
+.produce-pagination__page--active:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.produce-pagination__gap {
+  min-width: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--ink-soft);
+  opacity: 0.5;
+  user-select: none;
+}
+
+/* Small phones — icon-only Prev/Next, tighter page buttons so the whole
+   control still fits one row where possible. */
+@media (max-width: 480px) {
+  .produce-pagination {
+    gap: 0.4rem;
+    margin-top: 2rem;
+  }
+
+  .produce-pagination__nav {
+    padding: 0.5rem 0.7rem;
+  }
+
+  .produce-pagination__nav-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .produce-pagination__page {
+    min-width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ---------- 6. Catalogue empty state ---------- */
+
+.produce-catalogue__empty {
+  margin: 1rem 0 0;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  color: var(--ink-soft);
+}
+
+.produce-catalogue__empty[hidden] {
+  display: none;
+}
+
+.produce-catalogue__empty p {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.produce-catalogue__empty button {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease,
+    transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.produce-catalogue__empty button:hover {
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  background: rgba(111, 159, 114, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -10px rgba(31, 70, 53, 0.35);
+}
+
+/* ---------- 7. Produce Detail section ---------- */
+
+.produce-detail {
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: calc(var(--ff-height-top, 76px) + var(--ff-ticker-height, 34px) + 1.5rem);
+}
+
+.produce-detail:focus {
+  outline: none;
+}
+
+.produce-detail:not([hidden]) {
+  animation: cardIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.produce-detail.is-hiding {
+  animation: detailOut 0.28s cubic-bezier(0.4, 0, 1, 1) both;
+  pointer-events: none;
+}
+
+@keyframes detailOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* Two-col layout on top row, markets spans full width below */
+.produce-detail__article {
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ---- Image ---- */
+
+.produce-detail__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(31, 70, 53, 0.04),
+    0 8px 24px rgba(31, 70, 53, 0.10);
+}
+
+.produce-detail__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- Intro ---- */
+
+.produce-detail__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Top row: heading block + close button */
+.produce-detail__header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.produce-detail__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.produce-detail__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem);
+  line-height: 1.1;
+  margin: 0;
+  color: var(--ink);
+}
+
+.produce-detail__category {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.28rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(111, 159, 114, 0.16);
+  color: var(--primary-dark);
+  white-space: nowrap;
+}
+
+/* Close button — top right, SVG X icon */
+.produce-detail__close {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.produce-detail__close svg {
+  width: 14px;
+  height: 14px;
+}
+
+.produce-detail__close:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  transform: scale(1.1) rotate(90deg);
+}
+
+.produce-detail__close:active {
+  transform: scale(0.92);
+  transition-duration: 0.1s;
+}
+
+/* Description */
+.produce-detail__description {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* Meta tiles — season + market count */
+.produce-detail__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+.produce-detail__meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.produce-detail__meta-row:hover {
+  background: rgba(47, 107, 79, 0.05);
+  border-color: rgba(47, 107, 79, 0.22);
+  box-shadow: 0 2px 8px rgba(31, 70, 53, 0.07);
+}
+
+.produce-detail__meta-row dt {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.6;
+  margin: 0;
+}
+
+.produce-detail__meta-row dt svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  color: var(--primary-light);
+}
+
+.produce-detail__meta-row dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* ---------- 8. Available Markets ---------- */
+
+.produce-detail__markets {
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+}
+
+.produce-detail__markets-header {
+  margin-bottom: 1.25rem;
+}
+
+.produce-detail__markets-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.produce-detail__markets-header h3 svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.produce-detail__markets-empty {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.produce-detail__markets-empty[hidden] {
+  display: none;
+}
+
+.produce-detail__market-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Market tile — hover lift like produce cards */
+.produce-detail__market-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  transition:
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease;
+}
+
+.produce-detail__market-item:hover {
+  box-shadow: 0 8px 24px rgba(31, 70, 53, 0.12);
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.produce-detail__market-heading {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.produce-detail__market-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.produce-detail__market-item:hover .produce-detail__market-name {
+  color: var(--primary-dark);
+}
+
+/* Status pill with animated dot */
+.produce-detail__market-status {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.67rem;
+  font-weight: 700;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.produce-detail__market-status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.produce-detail__market-status[data-status="open"] {
+  color: #1A6B3C;
+  border-color: rgba(46, 170, 92, 0.35);
+  background: rgba(46, 170, 92, 0.06);
+}
+
+.produce-detail__market-status[data-status="open"]::before {
+  background: #2EAA5C;
+  opacity: 1;
+  animation: statusPulse 2.4s ease-in-out infinite;
+}
+
+.produce-detail__market-status[data-status="closed"] {
+  color: var(--status-closed);
+  border-color: rgba(201, 74, 74, 0.3);
+  background: rgba(201, 74, 74, 0.05);
+}
+
+.produce-detail__market-status[data-status="closed"]::before {
+  background: var(--status-closed);
+  opacity: 0.9;
+}
+
+.produce-detail__market-hours {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+/* View Market button — solid green, full width */
+.produce-detail__market-link {
+  display: block;
+  margin-top: 0.25rem;
+  padding: 0.48rem 0.9rem;
+  background: var(--primary);
+  border: 1.5px solid var(--primary);
+  border-radius: 999px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.76rem;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease;
+}
+
+.produce-detail__market-link:hover,
+.produce-detail__market-link:focus-visible {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 4px 14px rgba(31, 70, 53, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 820px) {
+  .produce-detail__article {
+    grid-template-columns: 1fr;
+  }
+
+  .produce-detail__media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .produce-detail__meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- 9. What's in Season ---------- */
+
+/* A proper featured section — full-width band with a contrasting
+   background so it reads as a distinct page section, not an
+   afterthought. Cards mirror the produce-card anatomy (image on top,
+   body below) but are more compact so the grid fits more items at a
+   glance. Clicking any card (or its CTA) opens producesdetails.html, so
+   it's interactive, not decorative. */
+.produce-season {
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 7vw, 6rem);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+/* Header row: text block on the left, "N fresh now" badge on the right */
+.produce-season__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin: 0 0 2rem;
+}
+
+.produce-season__header-text {
+  max-width: 600px;
+}
+
+.produce-season__header-text h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.2rem + 1.1vw, 2.1rem);
+  line-height: 1.15;
+  margin: 0 0 0.45rem;
+  color: var(--ink);
+}
+
+.produce-season__subtext {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.produce-season__month {
+  color: var(--primary-dark);
+  font-style: normal;
+}
+
+/* "N fresh now" pill — same visual language as the category pill on cards */
+.produce-season__badge {
+  flex-shrink: 0;
+  align-self: flex-start;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(111, 159, 114, 0.18);
+  color: var(--primary-dark);
+  white-space: nowrap;
+  margin-top: 0.2rem;
+}
+
+.produce-season__empty {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.produce-season__empty[hidden] {
+  display: none;
+}
+
+/* Responsive grid — same auto-fill token as .produce-grid so the two
+   grids always use the same column width. Season cards are intentionally
+   narrower (min 200px vs 280px) so more fit per row, signalling
+   "compact featured picks" vs the full catalogue grid above. */
+.produce-season__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: clamp(1rem, 0.75rem + 0.8vw, 1.5rem);
+  list-style: none;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+/* Season card — same as .produce-card (market card style) */
+.produce-season__item {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(31, 70, 53, 0.04),
+    0 4px 12px rgba(31, 70, 53, 0.06);
+  transition:
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: none;
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+.produce-season__item:hover {
+  box-shadow:
+    0 2px 4px rgba(31, 70, 53, 0.04),
+    0 12px 28px rgba(31, 70, 53, 0.13),
+    0 24px 48px rgba(31, 70, 53, 0.07);
+}
+
+/* Image — 16/9 same as market/produce card */
+.produce-season__media {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 16 / 9;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.produce-season__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(10, 28, 18, 0.38) 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.produce-season__item:hover .produce-season__media::after {
+  opacity: 1;
+}
+
+.produce-season__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.produce-season__item:hover .produce-season__image {
+  transform: scale(1.06);
+}
+
+/* Category badge — bottom-left of image, same as .produce-card__category-badge */
+.produce-season__category {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.26rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--primary-dark);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 1.5rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.produce-season__item:hover .produce-season__category {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+/* Body */
+.produce-season__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0.85rem 1rem 1rem;
+  gap: 0.5rem;
+  min-height: 0;
+}
+
+.produce-season__heading {
+  display: block;
+}
+
+.produce-season__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--ink);
+  min-width: 0;
+  transition: color 0.25s ease;
+}
+
+.produce-season__item:hover .produce-season__name {
+  color: var(--primary-dark);
+}
+
+/* Description — 1-line clamp */
+.produce-season__description {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.25s ease;
+}
+
+.produce-season__item:hover .produce-season__description {
+  color: var(--ink);
+}
+
+/* Season meta tile — same as produce-card__meta-row */
+.produce-season__meta {
+  margin: 0;
+}
+
+.produce-season__meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  padding: 0.28rem 0.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.produce-season__meta-row dt {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.6;
+  margin: 0;
+}
+
+.produce-season__meta-row dt svg {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  color: var(--primary-light);
+  opacity: 1;
+}
+
+.produce-season__season-label {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* CTA — same as .produce-card__details */
+.produce-season__actions {
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.produce-season__cta {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background: var(--primary);
+  border: 1.5px solid var(--primary);
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.83rem;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.28s ease;
+}
+
+.produce-season__cta:hover,
+.produce-season__cta:focus-visible {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 6px 20px rgba(31, 70, 53, 0.3);
+  transform: translateY(-2px);
+  letter-spacing: 0.01em;
+}
+
+.produce-season__cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(31, 70, 53, 0.2);
+  transition-duration: 0.1s;
+}
+
+/* ---------- 10. Responsive ---------- */
+
+/* ---- 1100px: 3-col grid ---- */
+@media (max-width: 1100px) {
+  .produce-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .produce-detail__article {
+    grid-template-columns: minmax(220px, 320px) 1fr;
+  }
+}
+
+/* ---- 960px: 2-col grid ---- */
+@media (max-width: 960px) {
+  .produce-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .produce-season__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- 720px: tablet ---- */
+@media (max-width: 720px) {
+
+  /* Catalogue section heading */
+  .produce-catalogue__header h2 {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+  }
+
+  /* Season section heading */
+  .produce-season__header-text h2 {
+    font-size: clamp(1.6rem, 4.5vw, 2rem);
+  }
+
+  /* Header stacks on tablet */
+  .produce-catalogue__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .produce-catalogue__header-right {
+    width: 100%;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    padding-bottom: 0;
+  }
+
+  .produce-combobox {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+  }
+
+  .produce-catalogue__header-right .toolbar__reset {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  /* CTA button full tap target */
+  .produce-card__details {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .produce-season__cta {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  /* Detail panel: stack vertically */
+  .produce-detail__article {
+    grid-template-columns: 1fr;
+  }
+
+  .produce-detail__media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .produce-detail__close {
+    top: 0;
+  }
+
+  .produce-detail__markets {
+    padding: 1.25rem;
+  }
+}
+
+/* ---- 580px: 2-col on mobile (cards should stay compact, not full-width) ---- */
+@media (max-width: 580px) {
+  .produce-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  /* Compact card body on small screens */
+  .produce-card__body {
+    padding: 0.6rem 0.7rem 0.75rem;
+    gap: 0.35rem;
+  }
+
+  .produce-card__name {
+    font-size: 0.82rem;
+  }
+
+  .produce-card__description {
+    font-size: 0.72rem;
+  }
+
+  .produce-card__meta {
+    gap: 0.35rem;
+  }
+
+  .produce-card__meta-row {
+    padding: 0.22rem 0.4rem;
+  }
+
+  .produce-card__meta-row dt {
+    font-size: 0.55rem;
+  }
+
+  .produce-card__meta-row dd {
+    font-size: 0.62rem;
+  }
+
+  .produce-card__details {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Season grid — same 2-col compact */
+  .produce-season__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .produce-season__body {
+    padding: 0.6rem 0.7rem 0.75rem;
+    gap: 0.35rem;
+  }
+
+  .produce-season__name {
+    font-size: 0.82rem;
+  }
+
+  .produce-season__description {
+    font-size: 0.72rem;
+  }
+
+  .produce-season__meta-row {
+    padding: 0.22rem 0.4rem;
+  }
+
+  .produce-season__meta-row dt {
+    font-size: 0.55rem;
+  }
+
+  .produce-season__season-label {
+    font-size: 0.62rem;
+  }
+
+  .produce-season__cta {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ---- 480px: mobile ---- */
+@media (max-width: 480px) {
+
+  /* Hero heading — big and bold on mobile */
+  .hero__heading {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+    line-height: 1.1;
+  }
+
+  .hero__subtext {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Catalogue heading */
+  .produce-catalogue__header h2 {
+    font-size: clamp(1.6rem, 6.5vw, 2rem);
+  }
+
+  /* Season section heading */
+  .produce-season__header-text h2 {
+    font-size: clamp(1.5rem, 6vw, 1.9rem);
+  }
+
+  /* Season header: stack badge below text */
+  .produce-season__header {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  /* Combobox full width on mobile */
+  .produce-combobox {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+  }
+
+  /* Reset: icon only — text hidden to save space */
+  .produce-catalogue__header-right .toolbar__reset span {
+    display: none;
+  }
+
+  .produce-catalogue__header-right .toolbar__reset {
+    flex: 0 0 auto;
+    padding: 0.65rem 0.75rem;
+  }
+
+  /* Detail meta: single column */
+  .produce-detail__meta {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+}
+
+/* ---- 360px: very small phones ---- */
+@media (max-width: 360px) {
+  .hero__heading {
+    font-size: 1.8rem;
+  }
+
+  .produce-catalogue__header h2 {
+    font-size: 1.5rem;
+  }
+
+  .produce-season__header-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .produce-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .produce-season__list {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* prefers-reduced-motion handled globally by market.css */
+
+/* ── Produces: Large screens ≥1440px ── */
+@media (min-width: 1440px) {
+  .hero__heading {
+    font-size: clamp(3.2rem, 2rem + 2.5vw, 5rem);
+  }
+
+  .hero__subtext {
+    font-size: clamp(1.1rem, 0.9rem + 0.4vw, 1.35rem);
+  }
+
+  .hero__content {
+    max-width: clamp(680px, 50vw, 900px);
+  }
+}
+
+/* ── Produces: Ultra-wide ≥1920px ── */
+@media (min-width: 1920px) {
+  .hero__heading {
+    font-size: clamp(4rem, 1.5rem + 3vw, 6rem);
+  }
+
+  .hero__subtext {
+    font-size: clamp(1.2rem, 0.8rem + 0.5vw, 1.5rem);
+  }
+
+  .hero__content {
+    max-width: clamp(800px, 45vw, 1100px);
+  }
+}
+
+/* Mobile responsive fixes for price button overflow */
+@media (max-width: 539px) {
+  .produce-card__price {
+    padding: 0.5rem 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .produce-card__price-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.04em;
+  }
+
+  .produce-card__price-value {
+    font-size: 0.85rem;
+  }
+
+  .produce-card__price-unit {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 440px) {
+
+  .produce-card__category-badge {
+    font-size: 0.55rem;
+  }
+
+  .produce-card__bookmark {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  .produce-season__category {
+    font-size: 0.55rem;
+  }
+
+  .produce-card__price {
+    padding: 0.45rem 0.65rem;
+    gap: 0.35rem;
+  }
+
+  .produce-card__price-label {
+    font-size: 0.45rem;
+  }
+
+  .produce-card__price-value {
+    font-size: 0.8rem;
+  }
+
+  .produce-card__price-unit {
+    font-size: 0.58rem;
+  }
+
+  .produce-card__price-go {
+    width: 18px;
+    height: 18px;
+  }
+
+  .produce-card__price-go svg {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .produce-card__price {
+    padding: 0.4rem 0.6rem;
+    gap: 0.3rem;
+  }
+
+  .produce-card__price-label {
+    font-size: 0.42rem;
+  }
+
+  .produce-card__price-value {
+    font-size: 0.55rem;
+  }
+
+  .produce-card__price-unit {
+    font-size: 0.55rem;
+  }
+}

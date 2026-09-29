@@ -1,0 +1,254 @@
+[
+  {
+    "id": "empress-market",
+    "legacyId": "market-01",
+    "name": "Empress Market",
+    "area": "Saddar",
+    "address": "Zaibunnisa Street, Saddar, Karachi",
+    "description": "Karachi's best-known covered market, with rows of fruit, vegetable and herb stalls under one roof.",
+    "image": "images/market/market-01.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "10:00", "close": "21:00" },
+      "tuesday": { "open": "10:00", "close": "21:00" },
+      "wednesday": { "open": "10:00", "close": "21:00" },
+      "thursday": { "open": "10:00", "close": "21:00" },
+      "friday": { "open": "15:00", "close": "21:00" },
+      "saturday": { "open": "10:00", "close": "21:00" },
+      "sunday": { "open": "10:00", "close": "21:00" }
+    },
+    "produceTypes": ["Fruits", "Vegetables", "Herbs", "Roots & Tubers"],
+    "produce": ["Mangoes", "Bananas", "Tomatoes", "Onions", "Coriander", "Mint", "Potatoes", "Ginger"]
+  },
+  {
+    "id": "jodia-bazaar",
+    "legacyId": "market-02",
+    "name": "Jodia Bazaar",
+    "area": "Saddar",
+    "address": "Jodia Bazaar Road, Saddar, Karachi",
+    "description": "A wholesale hub for fruit and vegetable traders, busiest in the early morning before the city wakes up.",
+    "image": "images/market/market-02.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "05:00", "close": "14:00" },
+      "tuesday": { "open": "05:00", "close": "14:00" },
+      "wednesday": { "open": "05:00", "close": "14:00" },
+      "thursday": { "open": "05:00", "close": "14:00" },
+      "friday": { "open": "05:00", "close": "12:00" },
+      "saturday": { "open": "05:00", "close": "14:00" },
+      "sunday": null
+    },
+    "produceTypes": ["Fruits", "Vegetables", "Roots & Tubers", "Organic / Farm Produce"],
+    "produce": ["Watermelons", "Bananas", "Cabbage", "Cauliflower", "Potatoes", "Sweet Potatoes"]
+  },
+  {
+    "id": "dha-phase-6-farmers-market",
+    "legacyId": "market-03",
+    "name": "DHA Phase 6 Farmers Market",
+    "area": "DHA",
+    "address": "26th Street, DHA Phase 6, Karachi",
+    "description": "A weekend farmers market where small growers sell organic vegetables, eggs and dairy straight from the source.",
+    "image": "images/market/market-03.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": null,
+      "tuesday": null,
+      "wednesday": null,
+      "thursday": null,
+      "friday": null,
+      "saturday": { "open": "08:00", "close": "14:00" },
+      "sunday": { "open": "08:00", "close": "14:00" }
+    },
+    "produceTypes": ["Organic / Farm Produce", "Dairy", "Eggs", "Vegetables"],
+    "produce": ["Farm Eggs", "Organic Spinach", "Desi Ghee", "Cottage Cheese", "Cherry Tomatoes"]
+  },
+  {
+    "id": "khayaban-e-bukhari-market",
+    "legacyId": "market-04",
+    "name": "Khayaban-e-Bukhari Market",
+    "area": "DHA",
+    "address": "Khayaban-e-Bukhari, DHA Phase 6, Karachi",
+    "description": "A neighbourhood market for daily essentials, with a steady stock of vegetables, leafy greens and fruit.",
+    "image": "images/market/market-04.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "09:00", "close": "22:00" },
+      "tuesday": { "open": "09:00", "close": "22:00" },
+      "wednesday": { "open": "09:00", "close": "22:00" },
+      "thursday": { "open": "09:00", "close": "22:00" },
+      "friday": { "open": "09:00", "close": "22:00" },
+      "saturday": { "open": "09:00", "close": "22:00" },
+      "sunday": { "open": "09:00", "close": "22:00" }
+    },
+    "produceTypes": ["Vegetables", "Leafy Greens", "Fruits", "Herbs"],
+    "produce": ["Spinach", "Lettuce", "Apples", "Bananas", "Coriander", "Green Chillies"]
+  },
+  {
+    "id": "clifton-beachside-market",
+    "legacyId": "market-05",
+    "name": "Clifton Beachside Market",
+    "area": "Clifton",
+    "address": "Clifton Block 4, near Sea View, Karachi",
+    "description": "An open-air evening market along the seafront, popular for fruit stalls and fresh herbs.",
+    "image": "images/market/market-05.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "16:00", "close": "23:00" },
+      "tuesday": { "open": "16:00", "close": "23:00" },
+      "wednesday": { "open": "16:00", "close": "23:00" },
+      "thursday": { "open": "16:00", "close": "23:00" },
+      "friday": { "open": "16:00", "close": "23:00" },
+      "saturday": { "open": "16:00", "close": "23:00" },
+      "sunday": { "open": "16:00", "close": "23:00" }
+    },
+    "produceTypes": ["Fruits", "Herbs", "Leafy Greens", "Vegetables"],
+    "produce": ["Guavas", "Chikoo", "Mint", "Coriander", "Spinach", "Cucumbers"]
+  },
+  {
+    "id": "do-darya-fresh-market",
+    "legacyId": "market-06",
+    "name": "Do Darya Fresh Market",
+    "area": "Clifton",
+    "address": "Do Darya, Boat Basin, Clifton, Karachi",
+    "description": "A small evening market beside Clifton's restaurant strip, best for fruit, dairy and eggs after work.",
+    "image": "images/market/market-06.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": null,
+      "tuesday": null,
+      "wednesday": { "open": "17:00", "close": "23:00" },
+      "thursday": { "open": "17:00", "close": "23:00" },
+      "friday": { "open": "17:00", "close": "23:00" },
+      "saturday": { "open": "17:00", "close": "23:00" },
+      "sunday": { "open": "17:00", "close": "23:00" }
+    },
+    "produceTypes": ["Fruits", "Dairy", "Eggs", "Herbs"],
+    "produce": ["Papayas", "Bananas", "Milk", "Farm Eggs", "Mint"]
+  },
+  {
+    "id": "gulshan-chowrangi-vegetable-market",
+    "legacyId": "market-07",
+    "name": "Gulshan Chowrangi Vegetable Market",
+    "area": "Gulshan-e-Iqbal",
+    "address": "Gulshan Chowrangi, Gulshan-e-Iqbal, Karachi",
+    "description": "A busy vegetable market at the main Gulshan intersection, stocked fresh through the day.",
+    "image": "images/market/market-07.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "07:00", "close": "20:00" },
+      "tuesday": { "open": "07:00", "close": "20:00" },
+      "wednesday": { "open": "07:00", "close": "20:00" },
+      "thursday": { "open": "07:00", "close": "20:00" },
+      "friday": { "open": "07:00", "close": "20:00" },
+      "saturday": { "open": "07:00", "close": "20:00" },
+      "sunday": { "open": "07:00", "close": "20:00" }
+    },
+    "produceTypes": ["Vegetables", "Roots & Tubers", "Leafy Greens"],
+    "produce": ["Potatoes", "Carrots", "Turnips", "Spinach", "Fenugreek Leaves"]
+  },
+  {
+    "id": "gulshan-e-iqbal-block-5-market",
+    "legacyId": "market-08",
+    "name": "Gulshan-e-Iqbal Block 5 Market",
+    "area": "Gulshan-e-Iqbal",
+    "address": "Block 5, Gulshan-e-Iqbal, Karachi",
+    "description": "A residential-area market with a reliable mix of fruit, dairy and eggs for everyday shopping.",
+    "image": "images/market/market-08.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "08:00", "close": "21:00" },
+      "tuesday": { "open": "08:00", "close": "21:00" },
+      "wednesday": { "open": "08:00", "close": "21:00" },
+      "thursday": { "open": "08:00", "close": "21:00" },
+      "friday": { "open": "08:00", "close": "21:00" },
+      "saturday": { "open": "08:00", "close": "21:00" },
+      "sunday": null
+    },
+    "produceTypes": ["Fruits", "Dairy", "Eggs", "Organic / Farm Produce"],
+    "produce": ["Oranges", "Bananas", "Yoghurt", "Farm Eggs", "Organic Honey"]
+  },
+  {
+    "id": "north-nazimabad-farmers-market",
+    "legacyId": "market-09",
+    "name": "North Nazimabad Farmers Market",
+    "area": "North Nazimabad",
+    "address": "Karimabad Chowrangi, North Nazimabad, Karachi",
+    "description": "A weekend-only farmers market focused on organic vegetables, herbs and leafy greens.",
+    "image": "images/market/market-09.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": null,
+      "tuesday": null,
+      "wednesday": null,
+      "thursday": null,
+      "friday": null,
+      "saturday": { "open": "09:00", "close": "15:00" },
+      "sunday": { "open": "09:00", "close": "15:00" }
+    },
+    "produceTypes": ["Organic / Farm Produce", "Leafy Greens", "Herbs", "Roots & Tubers"],
+    "produce": ["Organic Carrots", "Kale", "Basil", "Beetroot", "Radishes"]
+  },
+  {
+    "id": "nazimabad-no-2-market",
+    "legacyId": "market-10",
+    "name": "Nazimabad No. 2 Market",
+    "area": "Nazimabad",
+    "address": "Nazimabad No. 2, Karachi",
+    "description": "A long-standing neighbourhood market with everyday vegetables, fruit, dairy and eggs.",
+    "image": "images/market/market-10.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "08:00", "close": "20:00" },
+      "tuesday": { "open": "08:00", "close": "20:00" },
+      "wednesday": { "open": "08:00", "close": "20:00" },
+      "thursday": { "open": "08:00", "close": "20:00" },
+      "friday": { "open": "08:00", "close": "20:00" },
+      "saturday": { "open": "08:00", "close": "20:00" },
+      "sunday": { "open": "08:00", "close": "20:00" }
+    },
+    "produceTypes": ["Vegetables", "Fruits", "Dairy", "Eggs"],
+    "produce": ["Tomatoes", "Onions", "Bananas", "Milk", "Farm Eggs"]
+  },
+  {
+    "id": "malir-produce-market",
+    "legacyId": "market-11",
+    "name": "Malir Produce Market",
+    "area": "Malir",
+    "address": "Malir Halt Road, Malir, Karachi",
+    "description": "A produce hub close to Karachi's farmland, with some of the freshest vegetables and fruit in the city.",
+    "image": "images/market/market-11.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "05:00", "close": "13:00" },
+      "tuesday": { "open": "05:00", "close": "13:00" },
+      "wednesday": { "open": "05:00", "close": "13:00" },
+      "thursday": { "open": "05:00", "close": "13:00" },
+      "friday": { "open": "05:00", "close": "13:00" },
+      "saturday": { "open": "05:00", "close": "13:00" },
+      "sunday": { "open": "05:00", "close": "13:00" }
+    },
+    "produceTypes": ["Vegetables", "Fruits", "Roots & Tubers", "Organic / Farm Produce", "Leafy Greens"],
+    "produce": ["Okra", "Spinach", "Guavas", "Sweet Potatoes", "Farm-Fresh Tomatoes"]
+  },
+  {
+    "id": "korangi-fresh-market",
+    "legacyId": "market-12",
+    "name": "Korangi Fresh Market",
+    "area": "Korangi",
+    "address": "Korangi Road, Korangi, Karachi",
+    "description": "A practical daily market serving Korangi's residents and nearby industrial-area workers.",
+    "image": "images/market/market-12.png",
+    "coordinates": { "lat": null, "lng": null },
+    "schedule": {
+      "monday": { "open": "09:00", "close": "21:00" },
+      "tuesday": { "open": "09:00", "close": "21:00" },
+      "wednesday": { "open": "09:00", "close": "21:00" },
+      "thursday": { "open": "09:00", "close": "21:00" },
+      "friday": { "open": "09:00", "close": "21:00" },
+      "saturday": { "open": "09:00", "close": "21:00" },
+      "sunday": null
+    },
+    "produceTypes": ["Vegetables", "Fruits", "Dairy", "Eggs"],
+    "produce": ["Potatoes", "Onions", "Bananas", "Milk", "Farm Eggs"]
+  }
+]

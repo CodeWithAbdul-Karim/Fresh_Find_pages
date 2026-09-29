@@ -1,0 +1,664 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "marketId": "empress-market",
+      "author": "Hira Javed",
+      "rating": 5,
+      "date": "6 days ago",
+      "verified": true,
+      "text": "Went early on a Saturday for the fish and vegetable stalls. Everything was fresh, the vendors were fair with prices and the lanes were far less crowded before 9 AM.",
+      "helpful": 24
+    },
+    {
+      "id": 2,
+      "marketId": "empress-market",
+      "author": "Bilal Sheikh",
+      "rating": 4,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "Great variety under one roof — spices, dry fruit, meat and vegetables. It gets very crowded after 11 AM, so go early and keep your bag close.",
+      "helpful": 18
+    },
+    {
+      "id": 3,
+      "marketId": "empress-market",
+      "author": "Saad Ahmed",
+      "rating": 5,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "The dry fruit and spice stalls here are the best in Saddar. Prices are negotiable on bulk purchases and the vendors were honest about weights.",
+      "helpful": 31
+    },
+    {
+      "id": 4,
+      "marketId": "empress-market",
+      "author": "Alishba Khan",
+      "rating": 4,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "Produce quality is consistently good here. Parking is the only real problem — we had to park two streets away on a Friday afternoon.",
+      "helpful": 12
+    },
+    {
+      "id": 5,
+      "marketId": "empress-market",
+      "author": "Hamza Iqbal",
+      "rating": 3,
+      "date": "3 weeks ago",
+      "verified": false,
+      "text": "Good market overall, but the meat section smelled stale on my last visit and the floor was wet. The vegetables were perfectly fine though.",
+      "helpful": 9
+    },
+    {
+      "id": 6,
+      "marketId": "empress-market",
+      "author": "Nida Farhan",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "Bought a full week of vegetables and fruit for less than what the supermarket charges. The coriander and mint stayed fresh for four days.",
+      "helpful": 21
+    },
+    {
+      "id": 7,
+      "marketId": "empress-market",
+      "author": "Fatima Khan",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "A historic market that is genuinely worth the trip. Come on a weekday morning, wear shoes you don't mind getting dusty and carry small notes.",
+      "helpful": 27
+    },
+    {
+      "id": 8,
+      "marketId": "empress-market",
+      "author": "Usman Malik",
+      "rating": 2,
+      "date": "2 months ago",
+      "verified": false,
+      "text": "Went on a Sunday and it was shoulder to shoulder with a long wait at every popular stall. Prices were noticeably higher than the outer market too.",
+      "helpful": 6
+    },
+    {
+      "id": 9,
+      "marketId": "jodia-bazaar",
+      "author": "Imran Qureshi",
+      "rating": 5,
+      "date": "5 days ago",
+      "verified": true,
+      "text": "Wholesale rates here are hard to beat if you buy by the crate. Reached at 6 AM and got the first pick of the tomatoes and onions.",
+      "helpful": 22
+    },
+    {
+      "id": 10,
+      "marketId": "jodia-bazaar",
+      "author": "Sana Riaz",
+      "rating": 5,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "Perfect for bulk shopping before a family event. Got a whole carton of mangoes at nearly half the retail price and the vendor helped load the car.",
+      "helpful": 29
+    },
+    {
+      "id": 11,
+      "marketId": "jodia-bazaar",
+      "author": "Ahmed Raza",
+      "rating": 4,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "Quality is good if you come early. By 10 AM the best stock is gone and the lanes get tight with hand carts, so plan your trip accordingly.",
+      "helpful": 17
+    },
+    {
+      "id": 12,
+      "marketId": "jodia-bazaar",
+      "author": "Zainab Ali",
+      "rating": 4,
+      "date": "3 weeks ago",
+      "verified": true,
+      "text": "Great prices on rice, flour and pulses. Bring exact change and confirm the weight of every sack before you pay.",
+      "helpful": 14
+    },
+    {
+      "id": 13,
+      "marketId": "jodia-bazaar",
+      "author": "Kashif Mehmood",
+      "rating": 3,
+      "date": "1 month ago",
+      "verified": false,
+      "text": "Cheap but chaotic. Some stalls quote one price and change it once you show interest, so compare a few before buying anything.",
+      "helpful": 11
+    },
+    {
+      "id": 14,
+      "marketId": "jodia-bazaar",
+      "author": "Rabia Nasir",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "The dry fruit and dates here are far cheaper than any supermarket. Stocked up for the whole month and everything was fresh and well packed.",
+      "helpful": 26
+    },
+    {
+      "id": 15,
+      "marketId": "jodia-bazaar",
+      "author": "Danish Ali",
+      "rating": 4,
+      "date": "2 months ago",
+      "verified": true,
+      "text": "A proper wholesale market if you know what you are doing. Parking on the side street was manageable at 7 AM and the traders were helpful.",
+      "helpful": 13
+    },
+    {
+      "id": 16,
+      "marketId": "dha-phase-6-farmers-market",
+      "author": "Ayesha Siddiqui",
+      "rating": 5,
+      "date": "4 days ago",
+      "verified": true,
+      "text": "A weekend farmers market with genuinely fresh produce. The organic greens and strawberries were picked the same morning.",
+      "helpful": 33
+    },
+    {
+      "id": 17,
+      "marketId": "dha-phase-6-farmers-market",
+      "author": "Farhan Butt",
+      "rating": 5,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "Small but beautifully curated. Loved the fresh cheese and honey stalls, and every vendor let us taste before buying.",
+      "helpful": 25
+    },
+    {
+      "id": 18,
+      "marketId": "dha-phase-6-farmers-market",
+      "author": "Mehwish Tariq",
+      "rating": 4,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "A lovely Saturday morning outing for the family. Slightly premium prices, but the quality of the vegetables justifies every rupee.",
+      "helpful": 16
+    },
+    {
+      "id": 19,
+      "marketId": "dha-phase-6-farmers-market",
+      "author": "Omar Sheikh",
+      "rating": 5,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "The best place in DHA for seasonal fruit. Picked up sweet Sindhri mangoes at a fair price and the grower explained how to ripen them at home.",
+      "helpful": 30
+    },
+    {
+      "id": 20,
+      "marketId": "dha-phase-6-farmers-market",
+      "author": "Sarah Malik",
+      "rating": 4,
+      "date": "3 weeks ago",
+      "verified": false,
+      "text": "Very clean and family friendly with wide walkways. It only runs on weekends, so weekday shopping here is not possible.",
+      "helpful": 12
+    },
+    {
+      "id": 21,
+      "marketId": "dha-phase-6-farmers-market",
+      "author": "Hammad Raza",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "Friendly growers, honest weights and absolutely no haggling. I now do my weekly vegetables here instead of the supermarket.",
+      "helpful": 27
+    },
+    {
+      "id": 22,
+      "marketId": "khayaban-e-bukhari-market",
+      "author": "Nadia Hussain",
+      "rating": 5,
+      "date": "6 days ago",
+      "verified": true,
+      "text": "A well stocked neighbourhood market. Vegetables, fruit and a bakery all in one stretch, within a short walk of the main road.",
+      "helpful": 19
+    },
+    {
+      "id": 23,
+      "marketId": "khayaban-e-bukhari-market",
+      "author": "Talha Ansari",
+      "rating": 4,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "Good quality produce and clean lanes. Prices run a little higher than the sabzi mandi, but the convenience is worth it on weekdays.",
+      "helpful": 15
+    },
+    {
+      "id": 24,
+      "marketId": "khayaban-e-bukhari-market",
+      "author": "Areeba Yousuf",
+      "rating": 5,
+      "date": "3 weeks ago",
+      "verified": true,
+      "text": "Friendly vendors who remember their regulars. The spinach and peas were excellent this week and the fruit stall was well stocked.",
+      "helpful": 21
+    },
+    {
+      "id": 25,
+      "marketId": "khayaban-e-bukhari-market",
+      "author": "Shoaib Anwar",
+      "rating": 3,
+      "date": "1 month ago",
+      "verified": false,
+      "text": "Decent market for daily shopping, but the parking situation on Khayaban-e-Bukhari is rough in the evenings and the queues get long.",
+      "helpful": 8
+    },
+    {
+      "id": 26,
+      "marketId": "khayaban-e-bukhari-market",
+      "author": "Marium Nadeem",
+      "rating": 4,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "A nice mix of grocery, meat and fruit stalls. The meat section was clean and the butcher cut everything exactly to order.",
+      "helpful": 17
+    },
+    {
+      "id": 27,
+      "marketId": "clifton-beachside-market",
+      "author": "Hamza Jamil",
+      "rating": 4,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "Sea-facing stalls make this a pleasant evening walk. The fresh fish counter is the highlight, got pomfret straight off the ice.",
+      "helpful": 23
+    },
+    {
+      "id": 28,
+      "marketId": "clifton-beachside-market",
+      "author": "Erum Aslam",
+      "rating": 5,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "Great fresh fish and prawns at fair rates. Ask for the catch of the day and the vendors will clean and pack it for you.",
+      "helpful": 28
+    },
+    {
+      "id": 29,
+      "marketId": "clifton-beachside-market",
+      "author": "Ahsan Kapadia",
+      "rating": 4,
+      "date": "3 weeks ago",
+      "verified": true,
+      "text": "A good stop after a walk at Sea View. Slightly pricier than Malir, but the seafood quality and cleanliness are much better.",
+      "helpful": 14
+    },
+    {
+      "id": 30,
+      "marketId": "clifton-beachside-market",
+      "author": "Laila Rehman",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "Very clean for a seafood market and the vendors were polite. Bought crabs and they packed them properly with ice for the drive home.",
+      "helpful": 24
+    },
+    {
+      "id": 31,
+      "marketId": "clifton-beachside-market",
+      "author": "Bilal Chaudhry",
+      "rating": 3,
+      "date": "2 months ago",
+      "verified": false,
+      "text": "Nice location and great fish, but the vegetable choice is limited. Mostly seafood and snack stalls, so I still buy produce elsewhere.",
+      "helpful": 7
+    },
+    {
+      "id": 32,
+      "marketId": "do-darya-fresh-market",
+      "author": "Zohaib Niazi",
+      "rating": 5,
+      "date": "5 days ago",
+      "verified": true,
+      "text": "An evening market by the water with excellent grilled seafood and fresh fruit carts. Great value for a family outing on the weekend.",
+      "helpful": 26
+    },
+    {
+      "id": 33,
+      "marketId": "do-darya-fresh-market",
+      "author": "Mahnoor Iqbal",
+      "rating": 4,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "Fresh vegetables and fruit at reasonable rates. Best to go after sunset once every stall is open and the fish is iced down for the night.",
+      "helpful": 18
+    },
+    {
+      "id": 34,
+      "marketId": "do-darya-fresh-market",
+      "author": "Adeel Shah",
+      "rating": 5,
+      "date": "3 weeks ago",
+      "verified": true,
+      "text": "The fish here is as fresh as it gets and the vendors clean it for free. Also loved the seasonal fruit stalls at the entrance.",
+      "helpful": 22
+    },
+    {
+      "id": 35,
+      "marketId": "do-darya-fresh-market",
+      "author": "Kiran Zia",
+      "rating": 4,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "Good selection and friendly sellers. It gets busy on weekend nights and finding a table nearby can take a while.",
+      "helpful": 13
+    },
+    {
+      "id": 36,
+      "marketId": "do-darya-fresh-market",
+      "author": "Junaid Malik",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": false,
+      "text": "A great mix of produce and street food. Bought fresh guavas and bananas that were perfectly ripe and sweet.",
+      "helpful": 11
+    },
+    {
+      "id": 37,
+      "marketId": "gulshan-chowrangi-vegetable-market",
+      "author": "Sumaira Baig",
+      "rating": 5,
+      "date": "6 days ago",
+      "verified": true,
+      "text": "The cheapest good quality vegetables in Gulshan. Early morning stock is the freshest and the prices drop further close to closing time.",
+      "helpful": 29
+    },
+    {
+      "id": 38,
+      "marketId": "gulshan-chowrangi-vegetable-market",
+      "author": "Yasir Hamid",
+      "rating": 4,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "Great for bulk vegetables at wholesale rates. The lanes are narrow and muddy after rain, so wear shoes you can wash.",
+      "helpful": 17
+    },
+    {
+      "id": 39,
+      "marketId": "gulshan-chowrangi-vegetable-market",
+      "author": "Nabeel Anwar",
+      "rating": 3,
+      "date": "3 weeks ago",
+      "verified": false,
+      "text": "Prices are low but the quality varies from stall to stall. Check the bottom of the crate before buying potatoes or onions in bulk.",
+      "helpful": 9
+    },
+    {
+      "id": 40,
+      "marketId": "gulshan-chowrangi-vegetable-market",
+      "author": "Farzana Hakim",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "Bought a week of vegetables for a family of six at a very reasonable price. Vendors happily helped carry the bags to the car.",
+      "helpful": 24
+    },
+    {
+      "id": 41,
+      "marketId": "gulshan-chowrangi-vegetable-market",
+      "author": "Rehan Siddiqui",
+      "rating": 4,
+      "date": "2 months ago",
+      "verified": true,
+      "text": "A solid vegetable market. Parking is tricky at peak hours and the crowd is heaviest between 8 and 10 in the morning.",
+      "helpful": 12
+    },
+    {
+      "id": 42,
+      "marketId": "gulshan-e-iqbal-block-5-market",
+      "author": "Sidra Rauf",
+      "rating": 5,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "A clean and well organised market with everything from vegetables to household goods. I finish my weekly shopping in a single trip.",
+      "helpful": 25
+    },
+    {
+      "id": 43,
+      "marketId": "gulshan-e-iqbal-block-5-market",
+      "author": "Kamran Aziz",
+      "rating": 4,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "Good quality fruit at fair prices. The fruit stalls at the entrance carry the best seasonal stock, especially the mangoes.",
+      "helpful": 16
+    },
+    {
+      "id": 44,
+      "marketId": "gulshan-e-iqbal-block-5-market",
+      "author": "Anum Faisal",
+      "rating": 4,
+      "date": "3 weeks ago",
+      "verified": true,
+      "text": "A nice neighbourhood market. The staff at the bakery and the produce stalls are always polite and quick with the weighing.",
+      "helpful": 14
+    },
+    {
+      "id": 45,
+      "marketId": "gulshan-e-iqbal-block-5-market",
+      "author": "Waqas Ahmed",
+      "rating": 3,
+      "date": "1 month ago",
+      "verified": false,
+      "text": "Average quality on my last visit. The tomatoes were underripe and the queue at the checkout was long on a Sunday evening.",
+      "helpful": 8
+    },
+    {
+      "id": 46,
+      "marketId": "gulshan-e-iqbal-block-5-market",
+      "author": "Hina Sattar",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "Very convenient and always well stocked. Fresh milk and eggs are available without any rush if you shop in the morning.",
+      "helpful": 19
+    },
+    {
+      "id": 47,
+      "marketId": "north-nazimabad-farmers-market",
+      "author": "Danish Kamal",
+      "rating": 5,
+      "date": "5 days ago",
+      "verified": true,
+      "text": "A weekend farmers market with proper farm-fresh vegetables. The spinach, carrots and salad leaves were noticeably fresher than the regular sabzi market.",
+      "helpful": 31
+    },
+    {
+      "id": 48,
+      "marketId": "north-nazimabad-farmers-market",
+      "author": "Rabia Shafiq",
+      "rating": 5,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "Genuine growers selling directly, so you can ask exactly when something was harvested. Prices are fair for this kind of quality.",
+      "helpful": 23
+    },
+    {
+      "id": 49,
+      "marketId": "north-nazimabad-farmers-market",
+      "author": "Salman Yousaf",
+      "rating": 4,
+      "date": "3 weeks ago",
+      "verified": true,
+      "text": "Limited stalls but everything is good quality. I reached at 9 AM and some greens were already sold out, so it pays to go early.",
+      "helpful": 15
+    },
+    {
+      "id": 50,
+      "marketId": "north-nazimabad-farmers-market",
+      "author": "Alina Tariq",
+      "rating": 4,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "A lovely atmosphere with local honey and homemade pickle stalls as well. It only runs on Saturday and Sunday mornings.",
+      "helpful": 12
+    },
+    {
+      "id": 51,
+      "marketId": "north-nazimabad-farmers-market",
+      "author": "Imad ul Haq",
+      "rating": 5,
+      "date": "2 months ago",
+      "verified": true,
+      "text": "Excellent seasonal fruit. Got peaches and plums at a great price and the vendors were friendly and honest with the weights.",
+      "helpful": 20
+    },
+    {
+      "id": 52,
+      "marketId": "nazimabad-no-2-market",
+      "author": "Faiza Arooj",
+      "rating": 5,
+      "date": "6 days ago",
+      "verified": true,
+      "text": "A big covered market with everything from fresh produce to clothing. The vegetable section stays well stocked throughout the day.",
+      "helpful": 22
+    },
+    {
+      "id": 53,
+      "marketId": "nazimabad-no-2-market",
+      "author": "Arsalan Khan",
+      "rating": 4,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "Good variety and reasonable prices under one roof. It gets very crowded on Sunday evenings, so plan your visit around that.",
+      "helpful": 15
+    },
+    {
+      "id": 54,
+      "marketId": "nazimabad-no-2-market",
+      "author": "Nimra Aslam",
+      "rating": 4,
+      "date": "3 weeks ago",
+      "verified": true,
+      "text": "The meat and poultry counters are clean and the staff weigh everything in front of you. Fruit stalls are fresh in the morning.",
+      "helpful": 18
+    },
+    {
+      "id": 55,
+      "marketId": "nazimabad-no-2-market",
+      "author": "Tauqeer Abbas",
+      "rating": 3,
+      "date": "1 month ago",
+      "verified": false,
+      "text": "Fine for everyday shopping, but the produce quality is inconsistent and the alleys get very tight when the market is busy.",
+      "helpful": 9
+    },
+    {
+      "id": 56,
+      "marketId": "nazimabad-no-2-market",
+      "author": "Shazia Noor",
+      "rating": 5,
+      "date": "2 months ago",
+      "verified": true,
+      "text": "Very convenient for the whole family, with groceries, fruit and household items in one place at fair prices.",
+      "helpful": 17
+    },
+    {
+      "id": 57,
+      "marketId": "malir-produce-market",
+      "author": "Ghulam Abbas",
+      "rating": 5,
+      "date": "4 days ago",
+      "verified": true,
+      "text": "Arrived at 5:30 AM for the first trucks and the produce was straight off the farm. Wholesale prices without any middleman involved.",
+      "helpful": 34
+    },
+    {
+      "id": 58,
+      "marketId": "malir-produce-market",
+      "author": "Mehak Rizvi",
+      "rating": 5,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "The cheapest fresh vegetables in the city if you are willing to go early. A full crate of bananas for a fraction of the retail price.",
+      "helpful": 28
+    },
+    {
+      "id": 59,
+      "marketId": "malir-produce-market",
+      "author": "Salman Baig",
+      "rating": 4,
+      "date": "2 weeks ago",
+      "verified": true,
+      "text": "Huge variety and honest wholesale rates. Be ready for early hours, a lot of dust and plenty of pushing in the narrow lanes.",
+      "helpful": 19
+    },
+    {
+      "id": 60,
+      "marketId": "malir-produce-market",
+      "author": "Mehrun Nisa",
+      "rating": 3,
+      "date": "1 month ago",
+      "verified": false,
+      "text": "Great prices but the market is rough and crowded. Not comfortable with children, and there are no proper washrooms on site.",
+      "helpful": 10
+    },
+    {
+      "id": 61,
+      "marketId": "malir-produce-market",
+      "author": "Adeel Ahmed",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": true,
+      "text": "The potatoes, onions and ginger here are excellent value in bulk. Vendors helped load everything straight into the van.",
+      "helpful": 21
+    },
+    {
+      "id": 62,
+      "marketId": "korangi-fresh-market",
+      "author": "Noman Siddiqui",
+      "rating": 4,
+      "date": "6 days ago",
+      "verified": true,
+      "text": "A solid local market with fresh vegetables and dairy. Better prices than the nearby supermarket for everyday groceries.",
+      "helpful": 16
+    },
+    {
+      "id": 63,
+      "marketId": "korangi-fresh-market",
+      "author": "Bushra Kamran",
+      "rating": 5,
+      "date": "1 week ago",
+      "verified": true,
+      "text": "The fruit stalls here are excellent value. The watermelons and mangoes this season were sweet and very reasonably priced.",
+      "helpful": 27
+    },
+    {
+      "id": 64,
+      "marketId": "korangi-fresh-market",
+      "author": "Zubair Hashmi",
+      "rating": 4,
+      "date": "3 weeks ago",
+      "verified": true,
+      "text": "Clean lanes and helpful vendors. The fish counter is small but the stock was fresh when I visited in the morning.",
+      "helpful": 13
+    },
+    {
+      "id": 65,
+      "marketId": "korangi-fresh-market",
+      "author": "Sadaf Amin",
+      "rating": 5,
+      "date": "1 month ago",
+      "verified": false,
+      "text": "A friendly neighbourhood market. Bought a week of vegetables and fruit for the family and everything stayed fresh.",
+      "helpful": 18
+    },
+    {
+      "id": 66,
+      "marketId": "korangi-fresh-market",
+      "author": "Rizwan Butt",
+      "rating": 3,
+      "date": "2 months ago",
+      "verified": true,
+      "text": "Quality is decent but a few stalls need better hygiene. Go early in the morning when the produce is freshest and prices are lower.",
+      "helpful": 11
+    }
+  ]
+}

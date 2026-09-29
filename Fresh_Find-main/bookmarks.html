@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Items — FreshFind</title>
+  <meta name="description"
+    content="Your saved FreshFind markets and produce — quick access to everything you've bookmarked.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/market.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/produces.css">
+  <link rel="stylesheet" href="css/bookmarks.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+
+
+    <!-- ===== Ticker Strip ===== -->
+  <div class="ff-ticker" id="ffTicker">
+    <span class="sr-only">FreshFind helps you discover Karachi's local markets — what they sell, when they're open,
+      and what's fresh right now.</span>
+    <div class="ff-ticker__track" aria-hidden="true">
+      <span class="ff-ticker__item">Discover Karachi's local markets, all in one place</span>
+      <span class="ff-ticker__item">Know what's fresh, what's in season, and when to go</span>
+      <span class="ff-ticker__item">Real market hours. Real produce. Zero guesswork.</span>
+      <span class="ff-ticker__item">Built for Karachi shoppers who want it fresh, not stale</span>
+      <span class="ff-ticker__item">Discover Karachi's local markets, all in one place</span>
+      <span class="ff-ticker__item">Know what's fresh, what's in season, and when to go</span>
+      <span class="ff-ticker__item">Real market hours. Real produce. Zero guesswork.</span>
+      <span class="ff-ticker__item">Built for Karachi shoppers who want it fresh, not stale</span>
+    </div>
+  </div>
+
+  <!-- ===== Main Navbar ===== -->
+  <header class="ff-navbar" id="ffNavbar" data-ff-state="top">
+    <div class="ff-navbar__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="ff-navbar__logo" aria-label="FreshFind home">
+        <img src="images/navbar/logo.png" alt="FreshFind Logo">
+      </a>
+
+      <!-- Search Bar -->
+      <form class="ff-search" id="ffSearchForm" role="search">
+        <input
+          type="search"
+          class="ff-search__input"
+          id="ffSearchInput"
+          name="q"
+          placeholder="Search for products..."
+          aria-label="Search for products"
+          autocomplete="off">
+        <button type="submit" class="ff-search__btn" aria-label="Search">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.9"/>
+            <path d="M14 14l4.2 4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Right Actions: Bookmark + Sign In + Hamburger -->
+      <div class="ff-navbar__actions">
+        <!-- Bookmark Button with Badge -->
+        <a href="bookmarks.html" class="ff-navbar__bookmark" id="ffBookmarkBtn" aria-label="View saved items (0)">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="20" height="20">
+            <path d="M5 3.5C5 3.22386 5.22386 3 5.5 3H14.5C14.7761 3 15 3.22386 15 3.5V16.5L10 13.5L5 16.5V3.5Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+          </svg>
+          <span class="ff-navbar__bookmark-badge" id="ffBookmarkCount">0</span>
+        </a>
+
+        <a href="#auth" class="ff-navbar__auth">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+          Sign In
+        </a>
+
+        <!-- Hamburger (mobile only) -->
+        <button type="button" class="ff-navbar__hamburger" id="ffHamburgerBtn"
+          aria-label="Open menu" aria-expanded="false" aria-controls="ffMobileMenu">
+          <span class="ff-navbar__hamburger-line"></span>
+          <span class="ff-navbar__hamburger-line"></span>
+          <span class="ff-navbar__hamburger-line"></span>
+        </button>
+      </div>
+
+    </div><!-- /.ff-navbar__inner -->
+
+    <!-- ── Row 2: Categories · Primary Navigation ── -->
+    <div class="ff-navbar__sub">
+      <div class="ff-navbar__sub-inner">
+
+        <!-- Categories Button -->
+        <button
+          type="button"
+          class="ff-cat-btn"
+          id="ffCatBtn"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="ffCatPanel"
+          aria-label="Browse all categories">
+          <!-- Hamburger lines icon -->
+          <svg class="ff-cat-btn__icon" viewBox="0 0 20 16" fill="none" aria-hidden="true">
+            <rect y="0"  width="20" height="2.2" rx="1.1" fill="currentColor"/>
+            <rect y="7"  width="20" height="2.2" rx="1.1" fill="currentColor"/>
+            <rect y="13.8" width="20" height="2.2" rx="1.1" fill="currentColor"/>
+          </svg>
+          <span>Categories</span>
+          <svg class="ff-cat-btn__chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav class="ff-navbar__nav" aria-label="Primary">
+          <ul class="ff-navbar__links">
+            <li><a href="market.html" class="ff-navbar__link" data-ff-nav-link data-page="home">Home</a></li>
+            <li><a href="market.html" class="ff-navbar__link" data-ff-nav-link data-page="markets">Markets</a></li>
+            <li><a href="produces.html" class="ff-navbar__link" data-ff-nav-link data-page="produces">Produces</a></li>
+            <li><a href="market.html" class="ff-navbar__link" data-ff-nav-link data-page="about">About Us</a></li>
+            <li><a href="market.html" class="ff-navbar__link" data-ff-nav-link data-page="contact">Contact Us</a></li>
+          </ul>
+        </nav>
+
+      </div><!-- /.ff-navbar__sub-inner -->
+    </div><!-- /.ff-navbar__sub -->
+
+    <!-- Mobile Menu -->
+    <nav class="ff-mobile-menu" id="ffMobileMenu" aria-label="Mobile navigation" hidden>
+      <ul class="ff-mobile-menu__links">
+        <li><a href="market.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="home">Home</a></li>
+        <li><a href="market.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="markets">Markets</a></li>
+        <li><a href="produces.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="produces">Produces</a></li>
+        <li><a href="market.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="about">About Us</a></li>
+        <li><a href="market.html" class="ff-mobile-menu__link" data-ff-nav-link data-page="contact">Contact Us</a></li>
+      </ul>
+      <!-- Mobile categories trigger -->
+      <button type="button" class="ff-mobile-menu__cat-btn" id="ffMobileCatBtn"
+        aria-haspopup="true" aria-expanded="false">
+        <svg viewBox="0 0 20 16" fill="none" width="16" height="16" aria-hidden="true">
+          <rect y="0"    width="20" height="2.2" rx="1.1" fill="currentColor"/>
+          <rect y="7"    width="20" height="2.2" rx="1.1" fill="currentColor"/>
+          <rect y="13.8" width="20" height="2.2" rx="1.1" fill="currentColor"/>
+        </svg>
+        Browse Categories
+      </button>
+      <a href="#auth" class="ff-mobile-menu__auth">Sign In</a>
+    </nav>
+  </header>
+
+  <!-- ===== Categories Panel (Sidebar Dropdown) ===== -->
+  <!-- Overlay -->
+  <div class="ff-cat-overlay" id="ffCatOverlay" aria-hidden="true"></div>
+
+  <!-- Panel -->
+  <aside
+    class="ff-cat-panel"
+    id="ffCatPanel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Browse categories"
+    hidden
+    aria-hidden="true">
+
+    <!-- Panel Header -->
+    <div class="ff-cat-panel__header">
+      <div class="ff-cat-panel__title">
+        <svg class="ff-cat-panel__leaf" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 2.5.933 4.78 2.464 6.517C6.077 20.395 8.91 21.5 12 21.5c5.523 0 10-4.477 10-10S17.523 2 12 2Z" fill="#fff" opacity=".18"/>
+          <path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="#fff"/>
+        </svg>
+        <span>Categories</span>
+      </div>
+      <button type="button" class="ff-cat-panel__close" id="ffCatClose" aria-label="Close categories panel">
+        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Search inside panel -->
+    <div class="ff-cat-panel__search-wrap">
+      <svg class="ff-cat-panel__search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M14 14l3.5 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+      <input
+        type="search"
+        class="ff-cat-panel__search"
+        id="ffCatSearch"
+        placeholder="Search categories..."
+        autocomplete="off"
+        aria-label="Search categories">
+    </div>
+
+    <!-- All Categories pill -->
+    <button type="button" class="ff-cat-panel__all" id="ffCatAll">
+      All Categories
+      <span class="ff-cat-panel__all-count">8</span>
+    </button>
+
+    <!-- Category list -->
+    <ul class="ff-cat-panel__list" id="ffCatList" role="list">
+
+      <li class="ff-cat-panel__item" data-cat-name="Fruits">
+        <a href="produces.html?category=Fruits" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Fruits</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Vegetables">
+        <a href="produces.html?category=Vegetables" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Vegetables</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Herbs">
+        <a href="produces.html?category=Herbs" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Herbs</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Leafy Greens">
+        <a href="produces.html?category=Leafy Greens" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Leafy Greens</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Roots & Tubers">
+        <a href="produces.html?category=Roots & Tubers" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Roots &amp; Tubers</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Dairy">
+        <a href="produces.html?category=Dairy" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Dairy</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Eggs">
+        <a href="produces.html?category=Eggs" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Eggs</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+      <li class="ff-cat-panel__item" data-cat-name="Organic / Farm Produce">
+        <a href="produces.html?category=Organic / Farm Produce" class="ff-cat-panel__row">
+          <span class="ff-cat-panel__icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 19c1-5 4.5-9 10-11C13.5 12 10 15.5 5 19Z" fill="currentColor"/></svg>
+          </span>
+          <span class="ff-cat-panel__name">Organic / Farm Produce</span>
+          <span class="ff-cat-panel__count">6</span>
+          <svg class="ff-cat-panel__arrow" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+            <path d="M1 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </li>
+
+    </ul><!-- /.ff-cat-panel__list -->
+
+    <!-- Footer: total count -->
+    <div class="ff-cat-panel__footer-count">
+      <span>Total Categories</span>
+      <span class="ff-cat-panel__total-badge">8</span>
+    </div>
+
+    <!-- Email -->
+    <a class="ff-cat-panel__email" href="https://mail.google.com/mail/?view=cm&fs=1&to=findfreshmarket@gmail.com" target = "_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="15" height="15">
+        <rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M3.5 7.5 12 13l8.5-5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      findfreshmarket@gmail.com
+    </a>
+
+    <!-- Social links -->
+    <div class="ff-cat-panel__socials">
+      <a href="https://www.facebook.com/share/1DcEz7cwS1/" class="ff-cat-panel__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17 2h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/freshfind_official?stkn=MXF6bDB4Y293NjRmbg==" class="ff-cat-panel__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="#twitter"   class="ff-cat-panel__social-link" aria-label="X / Twitter">
+        <!-- X logo -->
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L2.25 2.25h7.02l4.261 5.632 4.713-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="https://youtube.com/@freshfindofficial?si=iFSGuIRCSj1rBDaO" class="ff-cat-panel__social-link" aria-label="YouTube" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.96-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58Z"/>
+          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/>
+        </svg>
+      </a>
+    </div><!-- /.ff-cat-panel__socials -->
+
+  </aside><!-- /.ff-cat-panel -->
+
+  <main>
+
+    <!-- ================================================================
+         HERO — Same layout as produces.html hero
+         ================================================================ -->
+    <section class="hero hero--bookmarks" aria-labelledby="bmHeading">
+      <div class="hero__pattern" aria-hidden="true"></div>
+      <div class="hero__blob" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+
+          <h1 class="hero__heading bm-hero__heading" id="bmHeading">
+            Your <mark>saved</mark> <span class="hero__heading-green">collection</span>
+          </h1>
+
+          <p class="hero__subtext">
+            All your bookmarked markets and produce, right here. Pick up where you left off.
+          </p>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         YOUR COLLECTION — Stats bar below hero
+         ================================================================ -->
+    <div class="bm-collection-bar" id="bmCollectionBar">
+      <div class="container bm-collection-bar__inner">
+
+        <!-- Stats -->
+        <div class="bm-collection-bar__stats" id="bmSummary">
+          <div class="bm-collection-bar__stat">
+            <span class="bm-collection-bar__stat-number" id="bmCountTotal">0</span>
+            <span class="bm-collection-bar__stat-label">total saved</span>
+          </div>
+          <div class="bm-collection-bar__divider" aria-hidden="true"></div>
+          <div class="bm-collection-bar__stat">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 5.5l6-3 6 3v7a1 1 0 01-1 1H3a1 1 0 01-1-1v-7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M6 13.5V9h4v4.5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+            <span class="bm-collection-bar__stat-number" id="bmCountMarkets">0</span>
+            <span class="bm-collection-bar__stat-label">markets</span>
+          </div>
+          <div class="bm-collection-bar__divider" aria-hidden="true"></div>
+          <div class="bm-collection-bar__stat">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 2C5.24 2 3 4.24 3 7c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              <circle cx="8" cy="7" r="1.8" stroke="currentColor" stroke-width="1.3"/>
+            </svg>
+            <span class="bm-collection-bar__stat-number" id="bmCountProduce">0</span>
+            <span class="bm-collection-bar__stat-label">produce</span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="bm-collection-bar__actions" id="bmActionsBar">
+          <button type="button" class="bm-collection-bar__btn" id="bmExportBtn">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 2v8M8 10l-2.5-2.5M8 10l2.5-2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2.5 12v1a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            Export
+          </button>
+          <button type="button" class="bm-collection-bar__btn" id="bmShareBtn">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="12" cy="3" r="1.6" stroke="currentColor" stroke-width="1.3"/>
+              <circle cx="12" cy="13" r="1.6" stroke="currentColor" stroke-width="1.3"/>
+              <circle cx="4" cy="8" r="1.6" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M10.5 3.9 5.4 7.1M5.4 8.9l5.1 3.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            Share
+          </button>
+          <button type="button" class="bm-collection-bar__btn bm-collection-bar__btn--danger" id="bmClearAllBtn">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            Clear All
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================================================================
+         GLOBAL EMPTY STATE
+         Shown only when there are zero bookmarks of any kind.
+         ================================================================ -->
+    <section class="bm-empty-global" id="bmEmptyGlobal" aria-labelledby="bmEmptyHeading" hidden>
+      <div class="container bm-empty-global__inner">
+
+        <div class="bm-empty-global__orb" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M16 10C16 8.34315 17.3431 7 19 7H45C46.6569 7 48 8.34315 48 10V56L32 45.5L16 56V10Z"
+              stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="bm-empty-global__text">
+          <h2 id="bmEmptyHeading">Nothing saved yet</h2>
+          <p>
+            Browse markets and produce, then tap the bookmark icon on any card
+            to save it here for later.
+          </p>
+        </div>
+
+        <div class="bm-empty-global__actions">
+          <a href="market.html#directory" class="bm-empty-global__cta bm-empty-global__cta--primary">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 5.5l6-3 6 3v7a1 1 0 01-1 1H3a1 1 0 01-1-1v-7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M6 13.5V9h4v4.5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+            Browse Markets
+          </a>
+          <a href="produces.html" class="bm-empty-global__cta bm-empty-global__cta--secondary">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 2C5.24 2 3 4.24 3 7c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              <circle cx="8" cy="7" r="1.8" stroke="currentColor" stroke-width="1.3"/>
+            </svg>
+            Browse Produce
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SAVED MARKETS
+         ================================================================ -->
+    <section class="bm-section" id="bmMarketsSection" aria-labelledby="bmMarketsHeading" hidden>
+      <div class="container">
+
+        <div class="bm-section__header" data-reveal>
+          <div class="bm-section__header-left">
+            <p class="bm-section__eyebrow">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M2 5.5l6-3 6 3v7a1 1 0 01-1 1H3a1 1 0 01-1-1v-7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M6 13.5V9h4v4.5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              </svg>
+              Saved Markets
+            </p>
+            <h2 id="bmMarketsHeading">
+              Your bookmarked<br><span class="bm-section__heading-accent">markets</span>
+              <span class="bm-section__count" id="bmMarketsBadge">0</span>
+            </h2>
+            <p class="bm-section__subtext">Tap "View Details" on any card to see full hours, area map and produce.</p>
+          </div>
+        </div>
+
+        <div class="market-grid" id="bmMarketGrid"></div>
+
+        <div class="bm-section__empty" id="bmMarketsEmpty" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M2 5.5l6-3 6 3v7a1 1 0 01-1 1H3a1 1 0 01-1-1v-7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M6 13.5V9h4v4.5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+          <p>No saved markets yet. <a href="market.html#directory">Browse the market directory</a> to find one you like.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SAVED PRODUCE
+         ================================================================ -->
+    <section class="bm-section bm-section--alt" id="bmProduceSection" aria-labelledby="bmProduceHeading" hidden>
+      <div class="container">
+
+        <div class="bm-section__header" data-reveal>
+          <div class="bm-section__header-left">
+            <p class="bm-section__eyebrow">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 2C5.24 2 3 4.24 3 7c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                <circle cx="8" cy="7" r="1.8" stroke="currentColor" stroke-width="1.3"/>
+              </svg>
+              Saved Produce
+            </p>
+            <h2 id="bmProduceHeading">
+              Your bookmarked<br><span class="bm-section__heading-accent">produce</span>
+              <span class="bm-section__count" id="bmProduceBadge">0</span>
+            </h2>
+            <p class="bm-section__subtext">See what's in season and which markets currently carry each item.</p>
+          </div>
+        </div>
+
+        <div class="produce-grid" id="bmProduceGrid"></div>
+
+        <div class="bm-section__empty" id="bmProduceEmpty" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2C7.58 2 4 5.58 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.42-3.58-8-8-8Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.3"/>
+          </svg>
+          <p>No saved produce yet. <a href="produces.html">Browse the produce guide</a> to explore what's in season.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       TEMPLATES
+       ================================================================ -->
+
+  <!-- Market card — compact bookmark version, only essential info -->
+  <template id="bmMarketCardTemplate">
+    <article class="market-card">
+      <div class="market-card__media">
+        <img class="market-card__image" src="" alt="" loading="lazy">
+        <span class="market-card__status" data-status="unknown">Checking hours…</span>
+        <button type="button" class="market-card__bookmark bm-remove-btn"
+          aria-label="Remove market from bookmarks" aria-pressed="true">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path
+              d="M5 3.5C5 3.22386 5.22386 3 5.5 3H14.5C14.7761 3 15 3.22386 15 3.5V16.5L10 13.5L5 16.5V3.5Z"
+              stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none" />
+            <line x1="7" y1="7" x2="13" y2="13" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" />
+            <line x1="13" y1="7" x2="7" y2="13" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" />
+          </svg>
+          <span class="sr-only">Remove from bookmarks</span>
+        </button>
+      </div>
+
+      <div class="market-card__body">
+        <div class="market-card__heading">
+          <h3 class="market-card__name"></h3>
+          <span class="market-card__area"></span>
+        </div>
+
+        <!-- Note widget — injected by bookmarks.js into .bm-note-slot -->
+        <div class="bm-note-slot"></div>
+
+        <div class="market-card__actions">
+          <a href="marketdetails.html" class="market-card__details">View details</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Produce card — compact bookmark version, only essential info -->
+  <template id="bmProduceCardTemplate">
+    <article class="produce-card">
+      <div class="produce-card__media">
+        <div class="produce-card__remove-wrap">
+          <button type="button" class="bm-produce-remove-btn"
+            aria-label="Remove produce from bookmarks" aria-pressed="true">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <line x1="5" y1="5" x2="15" y2="15" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" />
+              <line x1="15" y1="5" x2="5" y2="15" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" />
+            </svg>
+            <span class="sr-only">Remove from bookmarks</span>
+          </button>
+        </div>
+        <img class="produce-card__image" src="" alt="" loading="lazy">
+        <span class="produce-card__category-badge"></span>
+      </div>
+
+      <div class="produce-card__body">
+        <div class="produce-card__heading">
+          <h3 class="produce-card__name"></h3>
+        </div>
+
+        <!-- Note widget — injected by bookmarks.js into .bm-note-slot -->
+        <div class="bm-note-slot"></div>
+
+        <div class="produce-card__actions">
+          <a href="produces.html" class="produce-card__details">View in Produce Guide</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- =====================================================
+       FRESHBOT — Floating Chatbot Widget
+       ===================================================== -->
+
+  <!-- Launcher button -->
+  <button type="button" class="ff-chat-launcher" id="ffChatLauncher"
+    aria-label="Open FreshBot chat" aria-expanded="false" aria-controls="ffChatWindow">
+    <svg class="ff-chat-launcher__icon-open" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="13" rx="3" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M8 10h8M8 13.5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <path d="M9 5V3.5M15 5V3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="9" cy="19" r="1.2" fill="currentColor"/>
+      <circle cx="15" cy="19" r="1.2" fill="currentColor"/>
+    </svg>
+    <svg class="ff-chat-launcher__icon-close" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="ff-chat-launcher__badge" id="ffChatBadge" hidden aria-hidden="true">1</span>
+  </button>
+
+  <!-- Chat window -->
+  <div class="ff-chat-window" id="ffChatWindow" role="dialog"
+    aria-label="FreshBot chat" aria-modal="false" hidden>
+    <div class="ff-chat-header">
+      <div class="ff-chat-header__avatar" aria-hidden="true">🌿</div>
+      <div class="ff-chat-header__info">
+        <p class="ff-chat-header__name">FreshBot</p>
+        <span class="ff-chat-header__status">
+          <span class="ff-chat-header__status-dot" aria-hidden="true"></span>
+          Your local market guide
+        </span>
+      </div>
+      <button type="button" class="ff-chat-header__close" id="ffChatClose" aria-label="Close chat">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="ff-chat-messages" id="ffChatMessages" role="log" aria-live="polite" aria-label="Chat messages"></div>
+    <div class="ff-suggestions-wrap" id="ffSuggestionsWrap" hidden>
+      <div class="ff-suggestions-header">
+        <span class="ff-suggestions-label">Suggested questions</span>
+        <button type="button" class="ff-suggestions-toggle" id="ffSuggestionsToggle"
+          aria-expanded="true" aria-label="Hide suggested questions">
+          <svg class="ff-suggestions-arrow" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="ff-quick-replies" id="ffQuickReplies" aria-label="Suggested questions"></div>
+    </div>
+    <div class="ff-chat-input-row">
+      <label for="ffChatInput" class="sr-only">Type your message</label>
+      <input type="text" class="ff-chat-input" id="ffChatInput"
+        placeholder="Ask about markets, hours, produce…"
+        autocomplete="off" maxlength="200">
+      <button type="button" class="ff-chat-send" id="ffChatSend" aria-label="Send message" disabled>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/bookmarks.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/footer.js"></script>
+
+  <!-- Toast notification for copy/share feedback -->
+  <div class="bm-toast" id="bmToast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,515 @@
+/* =========================================================
+   FreshFind — Produce Details Page
+   producesdetails.css
+
+   Layout for producesdetails.html only. It reuses:
+     · produces.css  — the .produce-detail block (image, intro,
+       meta tiles, Available Markets list) moved off the
+       catalogue page
+     · marketdetails.css — breadcrumb, review cards, rating
+       bars and the reviews pagination
+   and adds only what is new here: the page shell, the price
+   card, the reviews/suggested bands and the responsive rules
+   for them.
+
+   Accent colour: lab(72.7183 31.8672 97.9407) — the same
+   warm accent the catalogue heading uses on produces.html,
+   applied here to part of each section heading.
+   ========================================================= */
+
+/* ---------- Page shell ---------- */
+
+.pd-main {
+  padding-top: calc(var(--ff-height-top, 76px) + var(--ff-ticker-height, 34px) + 2.5rem);
+  padding-bottom: 6rem;
+}
+
+/* Loading / not-found states — the loading line and .market-detail__not-found
+   card are already styled by marketdetails.css; this only reserves the
+   vertical rhythm so nothing jumps when the content swaps in. */
+.pd-status:empty {
+  display: none;
+}
+
+.pd-status .market-detail__loading {
+  margin: 0;
+}
+
+/* ---------- Breadcrumb ---------- */
+
+.pd-main .breadcrumb {
+  margin: 0 0 1.75rem;
+}
+
+/* ---------- Section headings — shared accent ---------- */
+
+.pd-h-accent,
+.pd-title__accent {
+  color: lab(72.7183 31.8672 97.9407);
+}
+
+/* Two-tone produce title (word one accent, word two ink) */
+.pd-title__accent {
+  margin-right: 0.28em;
+}
+
+/* ---------- Back link (top right of the overview) ---------- */
+
+.pd-back {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.95rem;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background    0.2s ease,
+    border-color  0.2s ease,
+    color         0.2s ease,
+    transform     0.2s ease,
+    box-shadow    0.2s ease;
+}
+
+.pd-back svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.pd-back:hover,
+.pd-back:focus-visible {
+  background: var(--surface);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(31, 70, 53, 0.12);
+}
+
+.pd-back:hover svg {
+  transform: translateX(-2px);
+}
+
+/* The overview sits at the top of the page, so it does not need the
+   section divider rules produces.css gives the inline panel. */
+.pd-overview {
+  border-top: none;
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+/* ---------- Market price card ----------
+   The reason a shopper opens this page: the produce's current price, big and
+   unambiguous, next to a short explanation. Both halves come from
+   produces.json's price object via producesdetails.js. */
+
+.pd-price {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.25rem;
+  padding: 1.15rem 1.35rem;
+  background: linear-gradient(135deg, rgba(47, 107, 79, 0.07) 0%, rgba(111, 159, 114, 0.15) 100%);
+  border: 1.5px solid rgba(47, 107, 79, 0.22);
+  border-radius: 18px;
+}
+
+.pd-price__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-right: 1.5rem;
+  border-right: 1px dashed rgba(47, 107, 79, 0.28);
+}
+
+.pd-price__label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.75;
+}
+
+.pd-price__label svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.pd-price__value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.2rem + 1.1vw, 2rem);
+  line-height: 1.05;
+  color: var(--primary-dark);
+  white-space: nowrap;
+}
+
+.pd-price__unit {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.pd-price__side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.pd-price__note {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 48ch;
+}
+
+.pd-price__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pd-price__link svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.pd-price__link:hover,
+.pd-price__link:focus-visible {
+  color: var(--primary);
+}
+
+.pd-price__link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Price unavailable — same card, calmer wording */
+.pd-price--na {
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+.pd-price--na .pd-price__value {
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
+  color: var(--ink-soft);
+}
+
+/* ---------- Available Markets heading ----------
+   produces.css styles the panel's h3 (that heading level suited the old
+   inline panel). On this page the panel is a real page section, so its
+   heading is an h2 — the same rules, applied to the element actually used. */
+
+.produce-detail__markets-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
+  margin: 0;
+  color: var(--ink);
+}
+
+.produce-detail__markets-header h2 svg {
+  width: 17px;
+  height: 17px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.pd-markets__sub {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+/* ---------- Reviews band ----------
+   The reviews card itself (.market-detail__reviews, .reviews-* children) is
+   styled entirely by marketdetails.css — this page only spaces it and gives
+   its heading the display face. */
+
+.pd-reviews-band {
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+}
+
+.pd-reviews h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 1.15rem + 0.9vw, 1.7rem);
+  line-height: 1.2;
+  margin: 0.5rem 0 0;
+  color: var(--ink);
+}
+
+/* ---------- Suggested produces ---------- */
+
+.pd-suggested {
+  padding: clamp(3rem, 6vw, 4.5rem) 0 0;
+}
+
+.pd-suggested__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.pd-suggested__header-text {
+  min-width: 0;
+}
+
+.pd-suggested__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+  opacity: 0.85;
+}
+
+.pd-suggested__eyebrow svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: var(--primary-light);
+}
+
+.pd-suggested h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
+  line-height: 1.15;
+  margin: 0.4rem 0 0;
+  color: var(--ink);
+}
+
+.pd-suggested__sub {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+.pd-suggested__all {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.62rem 1.3rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background    0.2s ease,
+    border-color  0.2s ease,
+    color         0.2s ease,
+    transform     0.2s ease,
+    box-shadow    0.2s ease;
+}
+
+.pd-suggested__all:hover,
+.pd-suggested__all:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(31, 70, 53, 0.22);
+}
+
+/* The whole suggested card is clickable (producesdetails.js opens that
+   produce's page), so the card itself shows a pointer — except over the
+   price link, which is a real anchor and handles its own cursor. */
+.pd-suggested__grid .produce-card {
+  cursor: pointer;
+}
+
+.pd-suggested__grid .produce-card__price {
+  cursor: pointer;
+}
+
+.pd-suggested__empty {
+  margin: 0;
+  padding: 1.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  background: var(--bg);
+  border: 1.5px dashed var(--border);
+  border-radius: 16px;
+}
+
+.pd-suggested__empty[hidden] {
+  display: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+   The reused blocks (.produce-detail__article, .produce-grid,
+   .market-detail__reviews) already carry their own breakpoints in
+   produces.css / marketdetails.css — only this page's own additions
+   are handled here.
+   ========================================================= */
+
+/* The heading row can wrap, so a long produce name never squeezes the
+   back link off the edge (the inline panel never needed this). */
+.pd-overview .produce-detail__header-row {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .pd-suggested__header {
+    gap: 1.25rem;
+  }
+
+  .pd-price__note {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 860px) {
+  /* Title block first, browse-all button underneath */
+  .pd-suggested__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pd-suggested__all {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  /* Price stacks: value on top, explanation below */
+  .pd-price {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.1rem 1.15rem;
+  }
+
+  .pd-price__main {
+    padding-right: 0;
+    padding-bottom: 0.9rem;
+    border-right: none;
+    border-bottom: 1px dashed rgba(47, 107, 79, 0.28);
+  }
+
+  .pd-price__side {
+    flex-direction: column;
+  }
+
+  .pd-reviews h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .pd-main {
+    padding-bottom: 4.5rem;
+  }
+
+  .pd-suggested__empty {
+    padding: 1.4rem 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pd-main {
+    padding-top: calc(var(--ff-height-top, 66px) + var(--ff-ticker-height, 28px) + 1.5rem);
+    padding-bottom: 4rem;
+  }
+
+  .pd-main .breadcrumb {
+    margin-bottom: 1.25rem;
+  }
+
+  .pd-overview {
+    padding-top: 1.5rem;
+  }
+
+  .pd-overview .produce-detail__header-row {
+    gap: 0.75rem;
+  }
+
+  .pd-back {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.74rem;
+  }
+
+  .pd-price__value {
+    font-size: 1.45rem;
+  }
+
+  .pd-suggested h2 {
+    font-size: 1.45rem;
+  }
+
+  .pd-suggested__all {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pd-suggested__sub {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .pd-price__note {
+    font-size: 0.78rem;
+  }
+
+  .pd-suggested__eyebrow {
+    letter-spacing: 0.09em;
+  }
+}
+
+/* Respect the site-wide reduced-motion preference for this page's
+   hover lifts, exactly like produces.css does for its own cards. */
+@media (prefers-reduced-motion: reduce) {
+  .pd-back:hover,
+  .pd-suggested__all:hover,
+  .pd-price__link:hover svg {
+    transform: none;
+  }
+}
+
+
+
